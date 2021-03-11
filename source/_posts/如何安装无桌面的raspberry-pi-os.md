@@ -15,7 +15,7 @@ date: 2020-10-12 23:22:07
 
 第一步把系统镜像烧写到TF卡，由于官方提供了**[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)**，制作过程变得非常简单。
 
-![Raspberry Pi Imager](http://www.niceying.com/wp-content/uploads/2020/10/Raspberry-Pi-Imager.jpg)
+![Raspberry Pi Imager](https://db3pap004files.storage.live.com/y4mHtDLPsTb61uc-sy6qvZ4vU5wYKIiRMmSCgt2iTyuyTc6teparUINH31uKFsQUSgVei8kYjdKWbwxqKmp0WT2Yr6O5qZSXBw3I2nSKujEqhY5PGg-Ityd1mW9bMzUwJLhFSGgfVCKXwcuqCaZN4HIKDckZjWyz-lAU93cepk4VS-vjT2PBwuwfVLJuIV68FyG?width=1359&height=895&cropmode=none)
 
 只需将TF卡插在电脑上，然后打开Raspberry Pi Imager，选择你想制作的系统，再选择TF卡，点击写入，等待写入完成即可。
 
