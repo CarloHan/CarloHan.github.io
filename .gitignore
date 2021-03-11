@@ -6,6 +6,8 @@ yarn.lock
 package-lock.json
 node_modules/
 db.json
+public/
+.deploy_git/
 
 # Ignore optional external libraries
 source/lib/*
