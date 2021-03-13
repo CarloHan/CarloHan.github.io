@@ -12,7 +12,7 @@ date: 2020-10-12 23:22:07
 最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。
 
 由于之前为了安装宝塔面板，使用了OPENFANS发布的[Debian-Pi-Aarch64](https://gitee.com/openfans-community/Debian-Pi-Aarch64)系统，索性重新制作一遍系统。因为TF卡比较小，最终选择了无桌面的官方系统。
-
+<!--more-->
 第一步把系统镜像烧写到TF卡，由于官方提供了**[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)**，制作过程变得非常简单。
 
 ![Raspberry Pi Imager](https://db3pap004files.storage.live.com/y4mHtDLPsTb61uc-sy6qvZ4vU5wYKIiRMmSCgt2iTyuyTc6teparUINH31uKFsQUSgVei8kYjdKWbwxqKmp0WT2Yr6O5qZSXBw3I2nSKujEqhY5PGg-Ityd1mW9bMzUwJLhFSGgfVCKXwcuqCaZN4HIKDckZjWyz-lAU93cepk4VS-vjT2PBwuwfVLJuIV68FyG?width=1359&height=895&cropmode=none)

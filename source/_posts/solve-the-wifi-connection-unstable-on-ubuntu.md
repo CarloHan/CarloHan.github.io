@@ -16,7 +16,7 @@ PC: Microsoft Surface Pro 3
 OS: Ubuntu 20.10
 
 PROBLEM: WIFI disconnected when the system sleep wake, can't reconnect otherwise reboot.
-
+<!--more-->
 REASON: Power Save service BUG
 
 Solution:

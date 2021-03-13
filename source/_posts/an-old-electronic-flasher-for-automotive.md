@@ -13,7 +13,7 @@ date: 2021-01-12 17:46:50
 ![Electronic flasher](https://www.niceying.com/wp-content/uploads/2020/10/微信图片_20201027110559-scaled.jpg)
 
 Last month I opened an electronic flasher for automotive, it's an old version which designed by transister, not IC. I have been busy testing a new BMS all month, and until now I have no time to talk about this component. The schematic copy as below.
-
+<!--more-->
 ![](https://www.niceying.com/wp-content/uploads/2020/11/微信图片_20201102101332.png)
 
 Schematic copy
