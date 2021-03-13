@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 22:07:51" itemprop="dateModified" datetime="2021-03-11T22:07:51+01:00">2021-03-11</time>
+                <time title="Modified: 2021-03-13 17:39:08" itemprop="dateModified" datetime="2021-03-13T17:39:08+01:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,19 +228,14 @@
 
       
           <p>Recently I’m working on calculate the charging current limitation of our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, it couldn’t achieve the effect I want. Then I turned my eyes on Matlab, but the logo of Matlab look at me and say, come on bro, don’t let me do this, it’s overkill. Ok, stop talking nonsense, let’s take a look at our protagonist.</p>
-<p>What is matplotlib?</p>
-<blockquote>
-<p>Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.</p>
-<p>Matplotlib website</p>
-</blockquote>
-<p>If you know something about Python, you may also know something about Matplotlib. In this article I won’t describe lots of the specific about this library, I just show a very simple example what I used in the work.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">data1 &#x3D; np.array([2.65, 2.93, 4.015, 4.05])</span><br><span class="line">data2 &#x3D; np.array([5, 20, 20, 0])</span><br><span class="line">data3 &#x3D; np.array([2.65, 2.79, 4.03, 4.05])</span><br><span class="line">data4 &#x3D; np.array([5, 12.5, 12.5, 0])</span><br><span class="line"></span><br><span class="line">plt.plot(data1, data2, label&#x3D;&#39;16A&#39;, marker&#x3D;&#39;o&#39;)</span><br><span class="line">plt.plot(data3, data4, label&#x3D;&#39;10A&#39;, marker&#x3D;&#39;o&#39;)</span><br><span class="line">plt.axis([2.65, 4.1, 0, 25])</span><br><span class="line">plt.annotate(&#39;(2.65, 5)&#39;, xy&#x3D;(2.65,5), xytext&#x3D;(2.8,5), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(2.79, 12.5)&#39;, xy&#x3D;(2.79,12.5), xytext&#x3D;(2.9,14), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(2.93, 20)&#39;, xy&#x3D;(2.93,20), xytext&#x3D;(3.1,21), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(4.015, 20)&#39;, xy&#x3D;(4.015,20), xytext&#x3D;(3.6,21), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(4.03, 12.5)&#39;, xy&#x3D;(4.03,12.5), xytext&#x3D;(3.65,14), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(4.05, 0)&#39;, xy&#x3D;(4.05,0), xytext&#x3D;(3.75,2), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.xlabel(&#39;Cell Voltage&#x2F;V&#39;)</span><br><span class="line">plt.ylabel(&#39;Charging Current&#x2F;A&#39;)</span><br><span class="line">plt.title(&#39;Charging Current Limitation&#39;)</span><br><span class="line">plt.legend(loc&#x3D;2)</span><br><span class="line">plt.savefig(&#39;Charging current limitation(10A16A).png&#39;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2021/02/Charging-current-limitation10A16A.png"></p>
-<p>Charging Current Limitation</p>
-<p>There are a lot of libraries very convenient and useful, most of the time we don’t need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/05/a-simple-application-of-matplotlib-at-work/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -290,7 +285,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 22:07:51" itemprop="dateModified" datetime="2021-03-11T22:07:51+01:00">2021-03-11</time>
+                <time title="Modified: 2021-03-13 17:39:26" itemprop="dateModified" datetime="2021-03-13T17:39:26+01:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,13 +310,14 @@
       
           <p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201027110559-scaled.jpg" alt="Electronic flasher"></p>
 <p>Last month I opened an electronic flasher for automotive, it’s an old version which designed by transister, not IC. I have been busy testing a new BMS all month, and until now I have no time to talk about this component. The schematic copy as below.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/11/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201102101332.png"></p>
-<p>Schematic copy</p>
-<p>Pin B is the positive 12V, pin E is ground, pin L is connected to a direction light lever. It was replaced by a 820ohm resistor. Let’s see what will happen in the simulation.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/11/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201102101739.png"></p>
-<p>Voltage(LED) - T</p>
-<p>The direction light flashes every 300 ms, and there is no clock no timer no mcu, only a little basic electronic components. Let’s analyse how it is realized.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/12/an-old-electronic-flasher-for-automotive/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -371,7 +367,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 22:07:51" itemprop="dateModified" datetime="2021-03-11T22:07:51+01:00">2021-03-11</time>
+                <time title="Modified: 2021-03-13 17:39:49" itemprop="dateModified" datetime="2021-03-13T17:39:49+01:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -397,18 +393,14 @@
           <p>PC: Microsoft Surface Pro 3</p>
 <p>OS: Ubuntu 20.10</p>
 <p>PROBLEM: WIFI disconnected when the system sleep wake, can’t reconnect otherwise reboot.</p>
-<p>REASON: Power Save service BUG</p>
-<p>Solution:</p>
-<ol>
-<li> Turn off Power Management.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># turn off the power management</span><br><span class="line">sudo iwconfig &lt;your connection eg:wlp1s0&gt; power off</span><br><span class="line"># check the status</span><br><span class="line">sudo iwconfig</span><br><span class="line">  Power Management:off</span><br></pre></td></tr></table></figure>
-
-<p>2. Above you will turn off the power management for one time, it will be turn on in next reboot. If you want to close it permanently:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># modify the power management configuration</span><br><span class="line">sudo vim &#x2F;etc&#x2F;NetworkManager&#x2F;conf.d&#x2F;default-wifi-powersave-on.conf</span><br><span class="line">  [connection]</span><br><span class="line">  wifi.powersave &#x3D; 3</span><br><span class="line"># replace this value with 2, save it</span><br><span class="line"># reboot, and check the status</span><br><span class="line">sudo iwconfig</span><br><span class="line">  Power Management:off</span><br></pre></td></tr></table></figure>
-
-<p>Congras, the WiFi connection will stable now.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/13/solve-the-wifi-connection-unstable-on-ubuntu/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -458,7 +450,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 22:07:51" itemprop="dateModified" datetime="2021-03-11T22:07:51+01:00">2021-03-11</time>
+                <time title="Modified: 2021-03-13 17:39:35" itemprop="dateModified" datetime="2021-03-13T17:39:35+01:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -482,31 +474,14 @@
 
       
           <p>When I created my EC2 instance, since the limitation of free version, I allocated only 8GB to the root volume. I soon realized that this volume was almost used up.</p>
-<p>As the free instance, Amazon gave us 30GB size to be used. It’s better estimate the size according to your purpose before allocate.</p>
-<p>Anyway, if you have the same problem, dont worry, let’s see how to expand it within 3 steps.</p>
-<ol>
-<li> Modify the volume size on the EC2 dashboard.</li>
-</ol>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png" alt="AWS DASHBOARD"></p>
-<p>a. On the dashboard, select “ELASTIC BLOCK STORE - Volumes”.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png" alt="AWS EBS"></p>
-<p>b. Right click the volume which you want to modify, select “Modify Volume”.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png" alt="Modify volume"></p>
-<p>c. Enter the volume size you want to reset, pay attention if you’re using a free instance, the total size don’t over 30GB, otherwise you will receive the bill from Amazon.</p>
-<p>2. Login your instance to modify partition.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/1548507836-5c2c2c17db432_articlex.png" alt="lsblk"></p>
-<p>a. From ssh login to your instance, enter command “<code>lsblk</code>“, you will see the real size of all volumes and the partitions. You will see that the size of the volume has been modified, but the patition has not used all of the volume yet.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/3128725125-5c2c2c196dada_articlex.png" alt="growpart command"></p>
-<p>b. Enter command “<code>sudo growpart /dev/xvda 1</code>“, to make partition “xvda1” use all of the volume available.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/2109384238-5c2c2c178ead5_articlex.png" alt="lsblk"></p>
-<p>c. Now you can see that the partition size is equal to the volume size. But…</p>
-<p>3. Ajust the filesystem.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/2922913778-5c2c2c15389c6_articlex.png" alt="filesystem not recognize the new space"></p>
-<p>a. But the filesystem has not yet recognized this new space, therefor we have to tell him through the command “<code>sudo resize2fs /dev/xvda1</code>“. (if your filesystem shows as /dev/root, you should use “<code>sudo resize2fs /dev/root</code>“)</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png" alt="expand done"></p>
-<p>b. Congratulations, the volume has been expanded.</p>
-<p>PS: Because I forgot screenshot the picture when I was procesing, so there is a few pictures from internet. If it violates your rights, please let me know and I will delete it.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/25/how-to-modify-the-volume-of-ebs-on-aws/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -556,7 +531,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 22:07:51" itemprop="dateModified" datetime="2021-03-11T22:07:51+01:00">2021-03-11</time>
+                <time title="Modified: 2021-03-13 17:37:41" itemprop="dateModified" datetime="2021-03-13T17:37:41+01:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -581,15 +556,14 @@
       
           <p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
 <p>由于之前为了安装宝塔面板，使用了OPENFANS发布的<a target="_blank" rel="noopener" href="https://gitee.com/openfans-community/Debian-Pi-Aarch64">Debian-Pi-Aarch64</a>系统，索性重新制作一遍系统。因为TF卡比较小，最终选择了无桌面的官方系统。</p>
-<p>第一步把系统镜像烧写到TF卡，由于官方提供了**<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>**，制作过程变得非常简单。</p>
-<p><img src="https://db3pap004files.storage.live.com/y4mHtDLPsTb61uc-sy6qvZ4vU5wYKIiRMmSCgt2iTyuyTc6teparUINH31uKFsQUSgVei8kYjdKWbwxqKmp0WT2Yr6O5qZSXBw3I2nSKujEqhY5PGg-Ityd1mW9bMzUwJLhFSGgfVCKXwcuqCaZN4HIKDckZjWyz-lAU93cepk4VS-vjT2PBwuwfVLJuIV68FyG?width=1359&height=895&cropmode=none" alt="Raspberry Pi Imager"></p>
-<p>只需将TF卡插在电脑上，然后打开Raspberry Pi Imager，选择你想制作的系统，再选择TF卡，点击写入，等待写入完成即可。</p>
-<p>下面重点来了，因为是无桌面系统，不能连接显示器键盘鼠标来进行wifi连接，账号设置等操作，所以需要使用ssh进行连接，并手动配置wifi。</p>
-<p>系统写入完成后，不要拔出TF卡，直接在电脑上打开TF卡，在root根目录下，新建一个文本文档取名为ssh并删掉后缀.txt。之后再新建一个文本文档取名为wpa_supplicant，后缀.conf，使用VScode或其他编辑器打开这个文档，在里面进行wifi配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">country&#x3D;IT    #所在国家代码</span><br><span class="line">ctrl_interface&#x3D;DIR&#x3D;&#x2F;var&#x2F;run&#x2F;wpa_supplicant GROUP&#x3D;netdev</span><br><span class="line">update_config&#x3D;1</span><br><span class="line"></span><br><span class="line">network&#x3D;&#123;     #使用network可添加多个wifi，根据priority优先级依次连接</span><br><span class="line"> ssid&#x3D;&quot;&lt;WiFi名,不能有中文&gt;&quot; </span><br><span class="line"> psk&#x3D;&quot;&lt;密码&gt;&quot; </span><br><span class="line"> priority&#x3D;10 </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">network&#x3D;&#123;</span><br><span class="line"> ssid&#x3D;&quot;&lt;第二个WiFi名&gt;&quot;</span><br><span class="line"> psk&#x3D;&quot;&lt;第二个密码&gt;&quot; </span><br><span class="line"> priority&#x3D;&lt;替换成数字，数字越大代表优先级越高&gt; </span><br></pre></td></tr></table></figure>
-
-<p>至此，前戏部分就结束了，将TF卡拔出，插在Pi上，然后接通电源，看到黄灯闪烁则系统运行成功。下一步需要找到你的Pi所分配到的IP地址，进行ssh连接。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/12/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%97%A0%E6%A1%8C%E9%9D%A2%E7%9A%84raspberry-pi-os/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -639,7 +613,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-11 22:07:51" itemprop="dateModified" datetime="2021-03-11T22:07:51+01:00">2021-03-11</time>
+                <time title="Modified: 2021-03-13 17:38:42" itemprop="dateModified" datetime="2021-03-13T17:38:42+01:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -664,10 +638,14 @@
       
           <p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
 <p>最终在jupyter的<a target="_blank" rel="noopener" href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
-
-<p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
