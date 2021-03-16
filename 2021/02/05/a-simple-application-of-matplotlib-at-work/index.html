@@ -17,14 +17,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Recently I’m working on calculate the charging current limitation of our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A simple application of Matplotlib at work">
 <meta property="og:url" content="http://example.com/2021/02/05/a-simple-application-of-matplotlib-at-work/index.html">
-<meta property="og:site_name" content="Han">
+<meta property="og:site_name" content="Han&#39;s Blog">
 <meta property="og:description" content="Recently I’m working on calculate the charging current limitation of our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, i">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.niceying.com/wp-content/uploads/2021/02/Charging-current-limitation10A16A.png">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>A simple application of Matplotlib at work | Han</title>
+  <title>A simple application of Matplotlib at work | Han's Blog</title>
   
 
 
@@ -101,7 +101,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Han</h1>
+      <h1 class="site-title">Han's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">Keep learning, Keep growing!</p>
@@ -109,6 +109,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -143,16 +144,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
-
-  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -181,11 +204,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
       <meta itemprop="name" content="Carlo Han">
-      <meta itemprop="description" content="Keep learning, Keep growing!">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Han">
+      <meta itemprop="name" content="Han's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -223,6 +246,27 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
 
         </div>
       </header>
@@ -241,7 +285,7 @@
 <p>Matplotlib website</p>
 </blockquote>
 <p>If you know something about Python, you may also know something about Matplotlib. In this article I won’t describe lots of the specific about this library, I just show a very simple example what I used in the work.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">data1 &#x3D; np.array([2.65, 2.93, 4.015, 4.05])</span><br><span class="line">data2 &#x3D; np.array([5, 20, 20, 0])</span><br><span class="line">data3 &#x3D; np.array([2.65, 2.79, 4.03, 4.05])</span><br><span class="line">data4 &#x3D; np.array([5, 12.5, 12.5, 0])</span><br><span class="line"></span><br><span class="line">plt.plot(data1, data2, label&#x3D;&#39;16A&#39;, marker&#x3D;&#39;o&#39;)</span><br><span class="line">plt.plot(data3, data4, label&#x3D;&#39;10A&#39;, marker&#x3D;&#39;o&#39;)</span><br><span class="line">plt.axis([2.65, 4.1, 0, 25])</span><br><span class="line">plt.annotate(&#39;(2.65, 5)&#39;, xy&#x3D;(2.65,5), xytext&#x3D;(2.8,5), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(2.79, 12.5)&#39;, xy&#x3D;(2.79,12.5), xytext&#x3D;(2.9,14), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(2.93, 20)&#39;, xy&#x3D;(2.93,20), xytext&#x3D;(3.1,21), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(4.015, 20)&#39;, xy&#x3D;(4.015,20), xytext&#x3D;(3.6,21), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(4.03, 12.5)&#39;, xy&#x3D;(4.03,12.5), xytext&#x3D;(3.65,14), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.annotate(&#39;(4.05, 0)&#39;, xy&#x3D;(4.05,0), xytext&#x3D;(3.75,2), arrowprops&#x3D;dict(width&#x3D;0.2,headwidth&#x3D;3,facecolor&#x3D;&#39;black&#39;,shrink&#x3D;0.1))</span><br><span class="line">plt.xlabel(&#39;Cell Voltage&#x2F;V&#39;)</span><br><span class="line">plt.ylabel(&#39;Charging Current&#x2F;A&#39;)</span><br><span class="line">plt.title(&#39;Charging Current Limitation&#39;)</span><br><span class="line">plt.legend(loc&#x3D;2)</span><br><span class="line">plt.savefig(&#39;Charging current limitation(10A16A).png&#39;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="attribute">import</span> numpy as np</span><br><span class="line"></span><br><span class="line"><span class="attribute">data1</span> = np.array([<span class="number">2</span>.<span class="number">65</span>, <span class="number">2</span>.<span class="number">93</span>, <span class="number">4</span>.<span class="number">015</span>, <span class="number">4</span>.<span class="number">05</span>])</span><br><span class="line"><span class="attribute">data2</span> = np.array([<span class="number">5</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>])</span><br><span class="line"><span class="attribute">data3</span> = np.array([<span class="number">2</span>.<span class="number">65</span>, <span class="number">2</span>.<span class="number">79</span>, <span class="number">4</span>.<span class="number">03</span>, <span class="number">4</span>.<span class="number">05</span>])</span><br><span class="line"><span class="attribute">data4</span> = np.array([<span class="number">5</span>, <span class="number">12</span>.<span class="number">5</span>, <span class="number">12</span>.<span class="number">5</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="attribute">plt</span>.plot(data<span class="number">1</span>, data<span class="number">2</span>, label=&#x27;<span class="number">16</span>A&#x27;, marker=&#x27;o&#x27;)</span><br><span class="line"><span class="attribute">plt</span>.plot(data<span class="number">3</span>, data<span class="number">4</span>, label=&#x27;<span class="number">10</span>A&#x27;, marker=&#x27;o&#x27;)</span><br><span class="line"><span class="attribute">plt</span>.axis([<span class="number">2</span>.<span class="number">65</span>, <span class="number">4</span>.<span class="number">1</span>, <span class="number">0</span>, <span class="number">25</span>])</span><br><span class="line"><span class="attribute">plt</span>.annotate(&#x27;(<span class="number">2</span>.<span class="number">65</span>, <span class="number">5</span>)&#x27;, xy=(<span class="number">2</span>.<span class="number">65</span>,<span class="number">5</span>), xytext=(<span class="number">2</span>.<span class="number">8</span>,<span class="number">5</span>), arrowprops=dict(width=<span class="number">0</span>.<span class="number">2</span>,headwidth=<span class="number">3</span>,facecolor=&#x27;black&#x27;,shrink=<span class="number">0</span>.<span class="number">1</span>))</span><br><span class="line"><span class="attribute">plt</span>.annotate(&#x27;(<span class="number">2</span>.<span class="number">79</span>, <span class="number">12</span>.<span class="number">5</span>)&#x27;, xy=(<span class="number">2</span>.<span class="number">79</span>,<span class="number">12</span>.<span class="number">5</span>), xytext=(<span class="number">2</span>.<span class="number">9</span>,<span class="number">14</span>), arrowprops=dict(width=<span class="number">0</span>.<span class="number">2</span>,headwidth=<span class="number">3</span>,facecolor=&#x27;black&#x27;,shrink=<span class="number">0</span>.<span class="number">1</span>))</span><br><span class="line"><span class="attribute">plt</span>.annotate(&#x27;(<span class="number">2</span>.<span class="number">93</span>, <span class="number">20</span>)&#x27;, xy=(<span class="number">2</span>.<span class="number">93</span>,<span class="number">20</span>), xytext=(<span class="number">3</span>.<span class="number">1</span>,<span class="number">21</span>), arrowprops=dict(width=<span class="number">0</span>.<span class="number">2</span>,headwidth=<span class="number">3</span>,facecolor=&#x27;black&#x27;,shrink=<span class="number">0</span>.<span class="number">1</span>))</span><br><span class="line"><span class="attribute">plt</span>.annotate(&#x27;(<span class="number">4</span>.<span class="number">015</span>, <span class="number">20</span>)&#x27;, xy=(<span class="number">4</span>.<span class="number">015</span>,<span class="number">20</span>), xytext=(<span class="number">3</span>.<span class="number">6</span>,<span class="number">21</span>), arrowprops=dict(width=<span class="number">0</span>.<span class="number">2</span>,headwidth=<span class="number">3</span>,facecolor=&#x27;black&#x27;,shrink=<span class="number">0</span>.<span class="number">1</span>))</span><br><span class="line"><span class="attribute">plt</span>.annotate(&#x27;(<span class="number">4</span>.<span class="number">03</span>, <span class="number">12</span>.<span class="number">5</span>)&#x27;, xy=(<span class="number">4</span>.<span class="number">03</span>,<span class="number">12</span>.<span class="number">5</span>), xytext=(<span class="number">3</span>.<span class="number">65</span>,<span class="number">14</span>), arrowprops=dict(width=<span class="number">0</span>.<span class="number">2</span>,headwidth=<span class="number">3</span>,facecolor=&#x27;black&#x27;,shrink=<span class="number">0</span>.<span class="number">1</span>))</span><br><span class="line"><span class="attribute">plt</span>.annotate(&#x27;(<span class="number">4</span>.<span class="number">05</span>, <span class="number">0</span>)&#x27;, xy=(<span class="number">4</span>.<span class="number">05</span>,<span class="number">0</span>), xytext=(<span class="number">3</span>.<span class="number">75</span>,<span class="number">2</span>), arrowprops=dict(width=<span class="number">0</span>.<span class="number">2</span>,headwidth=<span class="number">3</span>,facecolor=&#x27;black&#x27;,shrink=<span class="number">0</span>.<span class="number">1</span>))</span><br><span class="line"><span class="attribute">plt</span>.xlabel(&#x27;Cell Voltage/V&#x27;)</span><br><span class="line"><span class="attribute">plt</span>.ylabel(&#x27;Charging Current/A&#x27;)</span><br><span class="line"><span class="attribute">plt</span>.title(&#x27;Charging Current Limitation&#x27;)</span><br><span class="line"><span class="attribute">plt</span>.legend(loc=<span class="number">2</span>)</span><br><span class="line"><span class="attribute">plt</span>.savefig(&#x27;Charging current limitation(<span class="number">10</span>A<span class="number">16</span>A).png&#x27;)</span><br><span class="line"><span class="attribute">plt</span>.show()</span><br></pre></td></tr></table></figure>
 
 <p>As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:</p>
 <p><img src="https://www.niceying.com/wp-content/uploads/2021/02/Charging-current-limitation10A16A.png"></p>
@@ -253,12 +297,29 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Carlo Han
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2021/02/05/a-simple-application-of-matplotlib-at-work/" title="A simple application of Matplotlib at work">http://example.com/2021/02/05/a-simple-application-of-matplotlib-at-work/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/library/" rel="tag"># library</a>
-              <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
-              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/library/" rel="tag"><i class="fa fa-tag"></i> library</a>
+              <a href="/tags/matplotlib/" rel="tag"><i class="fa fa-tag"></i> matplotlib</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           </div>
 
         
@@ -337,7 +398,7 @@
     <img class="site-author-image" itemprop="image" alt="Carlo Han"
       src="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
   <p class="site-author-name" itemprop="name">Carlo Han</p>
-  <div class="site-description" itemprop="description">Keep learning, Keep growing!</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -390,11 +451,41 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Carlo Han</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">6k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">6 mins.</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -417,7 +508,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -428,6 +519,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
