@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Han
+title: HAN
 subtitle: 'Keep learning, Keep growing!'
-description: 'Keep learning, Keep growing!'
+description: ''
 keywords: programming, EV, electronic, embedded
 author: Carlo Han
 language: en
@@ -46,7 +46,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
@@ -105,3 +105,17 @@ deploy:
   type: git
   repo: https://github.com/CarloHan/CarloHan.github.io.git
   branch: master
+
+# search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# count_time
+symbols_count_time:
+  symbles: true
+  time: true
+  total_symbols: true
+  total_time: true
