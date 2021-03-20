@@ -90,6 +90,24 @@
       </tags>
   </entry>
   <entry>
+    <title>在AWS EC2上安装Jupyter并实现远程访问</title>
+    <url>/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</url>
+    <content><![CDATA[<p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
+<p>最终在jupyter的<a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
+<span id="more"></span>
+<figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line">ssh -i <span class="attribute">&lt;your key.pem&gt;</span> -NfL <span class="attribute">&lt;local port&gt;</span>:localhost:<span class="attribute">&lt;server port&gt;</span> <span class="attribute">&lt;user@ip&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>aws</tag>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SOLVE THE WIFI CONNECTION UNSTABLE ON UBUNTU</title>
     <url>/2020/11/13/solve-the-wifi-connection-unstable-on-ubuntu/</url>
     <content><![CDATA[<p>PC: Microsoft Surface Pro 3</p>
@@ -116,24 +134,6 @@
         <tag>ubuntu</tag>
         <tag>unstable</tag>
         <tag>wifi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在AWS EC2上安装Jupyter并实现远程访问</title>
-    <url>/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</url>
-    <content><![CDATA[<p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
-<p>最终在jupyter的<a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
-<span id="more"></span>
-<figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line">ssh -i <span class="attribute">&lt;your key.pem&gt;</span> -NfL <span class="attribute">&lt;local port&gt;</span>:localhost:<span class="attribute">&lt;server port&gt;</span> <span class="attribute">&lt;user@ip&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>aws</tag>
-        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
