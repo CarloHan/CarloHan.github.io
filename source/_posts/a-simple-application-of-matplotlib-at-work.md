@@ -9,19 +9,18 @@ categories:
   - - EV
   - - python
 date: 2021-02-05 09:30:17
+description: Matplotlib is one of the most useful library in Python. For professional fields, it can be used for scientific calculations; In daily use, it can easily help you realize data visualization. It will greatly improve work efficiency as long as you can master some simple grammar about it. 
 ---
 
-Recently I'm working on calculate the charging current limitation of our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, it couldn't achieve the effect I want. Then I turned my eyes on Matlab, but the logo of Matlab look at me and say, come on bro, don't let me do this, it's overkill. Ok, stop talking nonsense, let's take a look at our protagonist.
-<!--more-->
-What is matplotlib?
+Recently I'm working on calculating the charging current limitation strategy for our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, it couldn't achieve the effect waht I want. Then I turned my eyes on Matlab, but the logo of looks at me and says, come on bro, don't let me do this, it's overkill. Ok, stop talking nonsense, let's take a look at our protagonist.
+
+## What is matplotlib?
 
 > Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.
-> 
-> Matplotlib website
 
 If you know something about Python, you may also know something about Matplotlib. In this article I won't describe lots of the specific about this library, I just show a very simple example what I used in the work.
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -49,8 +48,6 @@ plt.show()
 
 As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:
 
-![](https://www.niceying.com/wp-content/uploads/2021/02/Charging-current-limitation10A16A.png)
-
-Charging Current Limitation
+![Charging Current Limitation](https://www.niceying.com/wp-content/uploads/2021/02/Charging-current-limitation10A16A.png)
 
 There are a lot of libraries very convenient and useful, most of the time we don't need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！
