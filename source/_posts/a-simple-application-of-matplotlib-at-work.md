@@ -20,6 +20,8 @@ Recently I'm working on calculating the charging current limitation strategy for
 
 If you know something about Python, you may also know something about Matplotlib. In this article I won't describe lots of the specific about this library, I just show a very simple example what I used in the work.
 
+## A simple example
+
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -46,8 +48,10 @@ plt.savefig('Charging current limitation(10A16A).png')
 plt.show()
 ```
 
+## Graphic
+
 As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:
 
-![Charging Current Limitation](https://www.niceying.com/wp-content/uploads/2021/02/Charging-current-limitation10A16A.png)
+![Charging Current Limitation](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png)
 
 There are a lot of libraries very convenient and useful, most of the time we don't need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！

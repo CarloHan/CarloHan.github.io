@@ -1,5 +1,5 @@
 ---
-title: 在AWS EC2上安装Jupyter并实现远程访问
+title: 远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题
 tags:
   - aws
   - jupyter
@@ -13,7 +13,7 @@ date: 2020-10-09 17:31:01
 
 最终在jupyter的[论坛](https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6)上找到了一个解决办法：
 <!--more-->
-```
+```shell
 ssh -i <your key.pem> -NfL <local port>:localhost:<server port> <user@ip>
 ```
 
