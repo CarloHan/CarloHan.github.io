@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>An old electronic flasher for automotive</title>
-    <url>/2021/01/12/an-old-electronic-flasher-for-automotive/</url>
-    <content><![CDATA[<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201027110559-scaled.jpg" alt="Electronic flasher"></p>
-<p>Last month I opened an electronic flasher for automotive, it’s an old version which designed by transister, not IC. I have been busy testing a new BMS all month, and until now I have no time to talk about this component. The schematic copy as below.</p>
-<span id="more"></span>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/11/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201102101332.png"></p>
-<p>Schematic copy</p>
-<p>Pin B is the positive 12V, pin E is ground, pin L is connected to a direction light lever. It was replaced by a 820ohm resistor. Let’s see what will happen in the simulation.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/11/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201102101739.png"></p>
-<p>Voltage(LED) - T</p>
-<p>The direction light flashes every 300 ms, and there is no clock no timer no mcu, only a little basic electronic components. Let’s analyse how it is realized.</p>
-]]></content>
-      <categories>
-        <category>HW</category>
-      </categories>
-      <tags>
-        <tag>analog cicuit</tag>
-        <tag>flasher</tag>
-        <tag>multivibrator</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>A simple application of Matplotlib at work</title>
     <url>/2021/02/05/a-simple-application-of-matplotlib-at-work/</url>
     <content><![CDATA[<p>Recently I’m working on calculating the charging current limitation strategy for our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, it couldn’t achieve the effect waht I want. Then I turned my eyes on Matlab, but the logo of looks at me and says, come on bro, don’t let me do this, it’s overkill. Ok, stop talking nonsense, let’s take a look at our protagonist.</p>
@@ -30,10 +8,10 @@
 <p>Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.</p>
 </blockquote>
 <p>If you know something about Python, you may also know something about Matplotlib. In this article I won’t describe lots of the specific about this library, I just show a very simple example what I used in the work.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data1 = np.array([<span class="number">2.65</span>, <span class="number">2.93</span>, <span class="number">4.015</span>, <span class="number">4.05</span>])</span><br><span class="line">data2 = np.array([<span class="number">5</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>])</span><br><span class="line">data3 = np.array([<span class="number">2.65</span>, <span class="number">2.79</span>, <span class="number">4.03</span>, <span class="number">4.05</span>])</span><br><span class="line">data4 = np.array([<span class="number">5</span>, <span class="number">12.5</span>, <span class="number">12.5</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(data1, data2, label=<span class="string">&#x27;16A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.plot(data3, data4, label=<span class="string">&#x27;10A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.axis([<span class="number">2.65</span>, <span class="number">4.1</span>, <span class="number">0</span>, <span class="number">25</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.65, 5)&#x27;</span>, xy=(<span class="number">2.65</span>,<span class="number">5</span>), xytext=(<span class="number">2.8</span>,<span class="number">5</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.79, 12.5)&#x27;</span>, xy=(<span class="number">2.79</span>,<span class="number">12.5</span>), xytext=(<span class="number">2.9</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.93, 20)&#x27;</span>, xy=(<span class="number">2.93</span>,<span class="number">20</span>), xytext=(<span class="number">3.1</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.015, 20)&#x27;</span>, xy=(<span class="number">4.015</span>,<span class="number">20</span>), xytext=(<span class="number">3.6</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.03, 12.5)&#x27;</span>, xy=(<span class="number">4.03</span>,<span class="number">12.5</span>), xytext=(<span class="number">3.65</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.05, 0)&#x27;</span>, xy=(<span class="number">4.05</span>,<span class="number">0</span>), xytext=(<span class="number">3.75</span>,<span class="number">2</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Cell Voltage/V&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Charging Current/A&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Charging Current Limitation&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="number">2</span>)</span><br><span class="line">plt.savefig(<span class="string">&#x27;Charging current limitation(10A16A).png&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="A-simple-example"><a href="#A-simple-example" class="headerlink" title="A simple example"></a>A simple example</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data1 = np.array([<span class="number">2.65</span>, <span class="number">2.93</span>, <span class="number">4.015</span>, <span class="number">4.05</span>])</span><br><span class="line">data2 = np.array([<span class="number">5</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>])</span><br><span class="line">data3 = np.array([<span class="number">2.65</span>, <span class="number">2.79</span>, <span class="number">4.03</span>, <span class="number">4.05</span>])</span><br><span class="line">data4 = np.array([<span class="number">5</span>, <span class="number">12.5</span>, <span class="number">12.5</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(data1, data2, label=<span class="string">&#x27;16A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.plot(data3, data4, label=<span class="string">&#x27;10A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.axis([<span class="number">2.65</span>, <span class="number">4.1</span>, <span class="number">0</span>, <span class="number">25</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.65, 5)&#x27;</span>, xy=(<span class="number">2.65</span>,<span class="number">5</span>), xytext=(<span class="number">2.8</span>,<span class="number">5</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.79, 12.5)&#x27;</span>, xy=(<span class="number">2.79</span>,<span class="number">12.5</span>), xytext=(<span class="number">2.9</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.93, 20)&#x27;</span>, xy=(<span class="number">2.93</span>,<span class="number">20</span>), xytext=(<span class="number">3.1</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.015, 20)&#x27;</span>, xy=(<span class="number">4.015</span>,<span class="number">20</span>), xytext=(<span class="number">3.6</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.03, 12.5)&#x27;</span>, xy=(<span class="number">4.03</span>,<span class="number">12.5</span>), xytext=(<span class="number">3.65</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.05, 0)&#x27;</span>, xy=(<span class="number">4.05</span>,<span class="number">0</span>), xytext=(<span class="number">3.75</span>,<span class="number">2</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Cell Voltage/V&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Charging Current/A&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Charging Current Limitation&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="number">2</span>)</span><br><span class="line">plt.savefig(<span class="string">&#x27;Charging current limitation(10A16A).png&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
-<p>As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2021/02/Charging-current-limitation10A16A.png" alt="Charging Current Limitation"></p>
+<h2 id="Graphic"><a href="#Graphic" class="headerlink" title="Graphic"></a>Graphic</h2><p>As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:</p>
+<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png" alt="Charging Current Limitation"></p>
 <p>There are a lot of libraries very convenient and useful, most of the time we don’t need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！</p>
 ]]></content>
       <categories>
@@ -44,6 +22,38 @@
         <tag>library</tag>
         <tag>matplotlib</tag>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>An old electronic flasher for automotive</title>
+    <url>/2021/01/12/an-old-electronic-flasher-for-automotive/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/an%20old%20flasher.jpeg" alt="Electronic flasher"></p>
+<p>Last month I opened an electronic flasher for automotive, it’s an old version which designed by transister, not IC. I have been busy testing a new BMS all month, and until now I have no time to talk about this component. The schematic copy as below.</p>
+<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20schematic.png" alt="Schematic flasher"></p>
+<p>Schematic copy</p>
+<p>Pin B is the positive 12V, pin E is ground, pin L is connected to a direction light lever. It was replaced by a 820ohm resistor. Let’s see what will happen in the simulation.</p>
+<center>
+  <img style="border-radius: 0.3125em;
+  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+  src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20simulate.png" width = "65%" alt=""/>
+  <br>
+  <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+  display: inline-block;
+  color: #999;
+  padding: 2px;">
+    Voltage(LED) - T
+  </div>
+</center>
+
+<p>The direction light flashes every 300 ms, and there is no clock no timer no mcu, only a little basic electronic components. Let’s analyse how it is realized.</p>
+]]></content>
+      <categories>
+        <category>HW</category>
+      </categories>
+      <tags>
+        <tag>analog cicuit</tag>
+        <tag>flasher</tag>
+        <tag>multivibrator</tag>
       </tags>
   </entry>
   <entry>
@@ -115,35 +125,12 @@
       </tags>
   </entry>
   <entry>
-    <title>如何安装无桌面的Raspberry Pi OS</title>
-    <url>/2020/10/12/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%97%A0%E6%A1%8C%E9%9D%A2%E7%9A%84raspberry-pi-os/</url>
-    <content><![CDATA[<p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
-<p>由于之前为了安装宝塔面板，使用了OPENFANS发布的<a href="https://gitee.com/openfans-community/Debian-Pi-Aarch64">Debian-Pi-Aarch64</a>系统，索性重新制作一遍系统。因为TF卡比较小，最终选择了无桌面的官方系统。</p>
-<span id="more"></span>
-<p>第一步把系统镜像烧写到TF卡，由于官方提供了**<a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>**，制作过程变得非常简单。</p>
-<p><img src="https://db3pap004files.storage.live.com/y4mHtDLPsTb61uc-sy6qvZ4vU5wYKIiRMmSCgt2iTyuyTc6teparUINH31uKFsQUSgVei8kYjdKWbwxqKmp0WT2Yr6O5qZSXBw3I2nSKujEqhY5PGg-Ityd1mW9bMzUwJLhFSGgfVCKXwcuqCaZN4HIKDckZjWyz-lAU93cepk4VS-vjT2PBwuwfVLJuIV68FyG?width=1359&height=895&cropmode=none" alt="Raspberry Pi Imager"></p>
-<p>只需将TF卡插在电脑上，然后打开Raspberry Pi Imager，选择你想制作的系统，再选择TF卡，点击写入，等待写入完成即可。</p>
-<p>下面重点来了，因为是无桌面系统，不能连接显示器键盘鼠标来进行wifi连接，账号设置等操作，所以需要使用ssh进行连接，并手动配置wifi。</p>
-<p>系统写入完成后，不要拔出TF卡，直接在电脑上打开TF卡，在root根目录下，新建一个文本文档取名为ssh并删掉后缀.txt。之后再新建一个文本文档取名为wpa_supplicant，后缀.conf，使用VScode或其他编辑器打开这个文档，在里面进行wifi配置如下：</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="attribute">country</span>=IT    #所在国家代码</span><br><span class="line"><span class="attribute">ctrl_interface</span>=DIR=/var/run/wpa_supplicant <span class="attribute">GROUP</span>=netdev</span><br><span class="line"><span class="attribute">update_config</span>=1</span><br><span class="line"></span><br><span class="line">network=&#123;     #使用network可添加多个wifi，根据priority优先级依次连接</span><br><span class="line"> <span class="attribute">ssid</span>=<span class="string">&quot;&lt;WiFi名,不能有中文&gt;&quot;</span> </span><br><span class="line"> <span class="attribute">psk</span>=<span class="string">&quot;&lt;密码&gt;&quot;</span> </span><br><span class="line"> <span class="attribute">priority</span>=10 </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">network=&#123;</span><br><span class="line"> <span class="attribute">ssid</span>=<span class="string">&quot;&lt;第二个WiFi名&gt;&quot;</span></span><br><span class="line"> <span class="attribute">psk</span>=<span class="string">&quot;&lt;第二个密码&gt;&quot;</span> </span><br><span class="line"> <span class="attribute">priority</span>=&lt;替换成数字，数字越大代表优先级越高&gt; </span><br></pre></td></tr></table></figure>
-
-<p>至此，前戏部分就结束了，将TF卡拔出，插在Pi上，然后接通电源，看到黄灯闪烁则系统运行成功。下一步需要找到你的Pi所分配到的IP地址，进行ssh连接。</p>
-]]></content>
-      <categories>
-        <category>Raspberry</category>
-      </categories>
-      <tags>
-        <tag>Headless</tag>
-        <tag>raspberry OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在AWS EC2上安装Jupyter并实现远程访问</title>
+    <title>远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题</title>
     <url>/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</url>
     <content><![CDATA[<p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
 <p>最终在jupyter的<a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
 <span id="more"></span>
-<figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line">ssh -i <span class="attribute">&lt;your key.pem&gt;</span> -NfL <span class="attribute">&lt;local port&gt;</span>:localhost:<span class="attribute">&lt;server port&gt;</span> <span class="attribute">&lt;user@ip&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
 
 <p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
 ]]></content>
@@ -156,7 +143,29 @@
       </tags>
   </entry>
   <entry>
-    <title>我的第一个私人网站</title>
+    <title>如何安装无桌面的Raspberry Pi OS</title>
+    <url>/2020/10/12/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%97%A0%E6%A1%8C%E9%9D%A2%E7%9A%84raspberry-pi-os/</url>
+    <content><![CDATA[<p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
+<p>由于之前为了安装宝塔面板，使用了OPENFANS发布的<a href="https://gitee.com/openfans-community/Debian-Pi-Aarch64">Debian-Pi-Aarch64</a>系统，索性重新制作一遍系统。因为TF卡比较小，最终选择了无桌面的官方系统。</p>
+<h2 id="制作系统镜像"><a href="#制作系统镜像" class="headerlink" title="制作系统镜像"></a>制作系统镜像</h2><p>第一步把系统镜像烧写到TF卡，由于官方提供了<a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>，制作过程变得非常简单。</p>
+<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/raspberry%20pi%20image.png" alt="Raspberry Pi Imager"></p>
+<p>只需将TF卡插在电脑上，然后打开Raspberry Pi Imager，选择你想制作的系统，再选择TF卡，点击写入，等待写入完成即可。</p>
+<h2 id="提前配置网络环境"><a href="#提前配置网络环境" class="headerlink" title="提前配置网络环境"></a>提前配置网络环境</h2><p>下面重点来了，因为是无桌面系统，不能连接显示器键盘鼠标来进行wifi连接，账号设置等操作，所以需要使用ssh进行连接，并手动配置wifi。</p>
+<p>系统写入完成后，不要拔出TF卡，直接在电脑上打开TF卡，在root根目录下，新建一个文本文档取名为ssh并删掉后缀.txt。之后再新建一个文本文档取名为wpa_supplicant，后缀.conf，使用VScode或其他编辑器打开这个文档，在里面进行wifi配置如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">country=IT    #所在国家代码</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line"></span><br><span class="line">network=&#123;     #使用network可添加多个wifi，根据priority优先级依次连接</span><br><span class="line"> ssid=&quot;&lt;WiFi名,不能有中文&gt;&quot; </span><br><span class="line"> psk=&quot;&lt;密码&gt;&quot; </span><br><span class="line"> priority=10 </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">network=&#123;</span><br><span class="line"> ssid=&quot;&lt;第二个WiFi名&gt;&quot;</span><br><span class="line"> psk=&quot;&lt;第二个密码&gt;&quot; </span><br><span class="line"> priority=&lt;替换成数字，数字越大代表优先级越高&gt; </span><br></pre></td></tr></table></figure>
+
+<p>至此，前戏部分就结束了，将TF卡拔出，插在Pi上，然后接通电源，看到黄灯闪烁则系统运行成功。下一步需要找到你的Pi所分配到的IP地址，进行ssh连接。</p>
+]]></content>
+      <categories>
+        <category>Raspberry</category>
+      </categories>
+      <tags>
+        <tag>Headless</tag>
+        <tag>raspberry OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一个私人博客(My first blog)</title>
     <url>/2020/10/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A7%81%E4%BA%BA%E7%BD%91%E7%AB%99/</url>
     <content><![CDATA[<p>很早就想建起一个属于自己的博客，用来记录学习的过程。</p>
 <p>学习中发现一个问题，也许是年龄越来越大，记忆力逐渐衰减，很多网络上学到的知识转瞬即忘。比如安装linux系统时，碰到一些奇怪的问题，在网上查找后找到了解决办法，然而下次碰到同样的问题，依然需要去网上找答案。</p>
