@@ -441,7 +441,7 @@ font:
   # Font settings for posts (.post-body).
   posts:
     external: true
-    family: Lato
+    family: Roboto
 
   # Font settings for <code> and code blocks.
   codes:
