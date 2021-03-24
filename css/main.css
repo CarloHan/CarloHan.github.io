@@ -179,7 +179,7 @@ body {
   color: var(--text-color);
   font-family: 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
-  line-height: 2.2;
+  line-height: 2;
 }
 @media (max-width: 991px) {
   body {
@@ -1214,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ac74ab;
+  background: #d042ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1358,7 +1358,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
 }
 .post-toc .nav-item {
-  line-height: 1.8;
+  line-height: 3;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1557,7 +1557,7 @@ pre .javascript .function {
   }
 }
 .post-body {
-  font-family: 'Lato', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1578,6 +1578,16 @@ pre .javascript .function {
   line-height: 1;
   margin: -20px auto 15px;
   text-align: center;
+}
+.post-body a:not(.btn) {
+  color: #ff7a7a;
+  border-bottom: none;
+}
+.post-body a:not(.btn):hover {
+  color: #fc6423;
+}
+.post-body p {
+  line-height: 1.8;
 }
 .post-sticky-flag {
   display: inline-block;
@@ -1818,7 +1828,7 @@ pre .javascript .function {
 }
 .posts-expand .post-title {
   font-size: 1.5em;
-  font-weight: normal;
+  font-weight: bold;
   margin: initial;
   text-align: center;
   overflow-wrap: break-word;
@@ -1855,7 +1865,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Lato', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;

@@ -27,23 +27,27 @@
   <entry>
     <title>An old electronic flasher for automotive</title>
     <url>/2021/01/12/an-old-electronic-flasher-for-automotive/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/an%20old%20flasher.jpeg" alt="Electronic flasher"></p>
+    <content><![CDATA[<style>
+  .box {width:65%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/an%20old%20flasher.jpeg" alt="electric flasher"/>
+</div>
+<br />
+
 <p>Last month I opened an electronic flasher for automotive, it’s an old version which designed by transister, not IC. I have been busy testing a new BMS all month, and until now I have no time to talk about this component. The schematic copy as below.</p>
-<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20schematic.png" alt="Schematic flasher"></p>
-<p>Schematic copy</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20schematic.png" alt="schematic" />
+  Schematic
+</div>
+
 <p>Pin B is the positive 12V, pin E is ground, pin L is connected to a direction light lever. It was replaced by a 820ohm resistor. Let’s see what will happen in the simulation.</p>
-<center>
-  <img style="border-radius: 0.3125em;
-  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-  src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20simulate.png" width = "65%" alt=""/>
-  <br>
-  <div style="color:orange; border-bottom: 1px solid #d9d9d9;
-  display: inline-block;
-  color: #999;
-  padding: 2px;">
-    Voltage(LED) - T
-  </div>
-</center>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20simulate.png" alt="simulation" />
+  Voltage(LED) - T
+</div>
 
 <p>The direction light flashes every 300 ms, and there is no clock no timer no mcu, only a little basic electronic components. Let’s analyse how it is realized.</p>
 ]]></content>
@@ -54,6 +58,35 @@
         <tag>analog cicuit</tag>
         <tag>flasher</tag>
         <tag>multivibrator</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SOLVE THE WIFI CONNECTION UNSTABLE ON UBUNTU</title>
+    <url>/2020/11/13/solve-the-wifi-connection-unstable-on-ubuntu/</url>
+    <content><![CDATA[<p>PC: Microsoft Surface Pro 3</p>
+<p>OS: Ubuntu 20.10</p>
+<p>PROBLEM: WIFI disconnected when the system sleep wake, can’t reconnect otherwise reboot.</p>
+<span id="more"></span>
+<p>REASON: Power Save service BUG</p>
+<p>Solution:</p>
+<ol>
+<li> Turn off Power Management.</li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># turn off the power management</span></span><br><span class="line"><span class="attribute">sudo</span> iwconfig &lt;your connection eg:wlp<span class="number">1</span>s<span class="number">0</span>&gt; power <span class="literal">off</span></span><br><span class="line"><span class="comment"># check the status</span></span><br><span class="line"><span class="attribute">sudo</span> iwconfig</span><br><span class="line">  <span class="attribute">Power</span> Management:<span class="literal">off</span></span><br></pre></td></tr></table></figure>
+
+<p>2. Above you will turn off the power management for one time, it will be turn on in next reboot. If you want to close it permanently:</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># modify the power management configuration</span></span><br><span class="line">sudo vim <span class="regexp">/etc/</span>NetworkManager<span class="regexp">/conf.d/</span>default-wifi-powersave-on.conf</span><br><span class="line">  [connection]</span><br><span class="line">  wifi.powersave = <span class="number">3</span></span><br><span class="line"><span class="comment"># replace this value with 2, save it</span></span><br><span class="line"><span class="comment"># reboot, and check the status</span></span><br><span class="line">sudo iwconfig</span><br><span class="line">  Power Management:off</span><br></pre></td></tr></table></figure>
+
+<p>Congras, the WiFi connection will stable now.</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>connection</tag>
+        <tag>ubuntu</tag>
+        <tag>unstable</tag>
+        <tag>wifi</tag>
       </tags>
   </entry>
   <entry>
@@ -96,40 +129,10 @@
       </tags>
   </entry>
   <entry>
-    <title>SOLVE THE WIFI CONNECTION UNSTABLE ON UBUNTU</title>
-    <url>/2020/11/13/solve-the-wifi-connection-unstable-on-ubuntu/</url>
-    <content><![CDATA[<p>PC: Microsoft Surface Pro 3</p>
-<p>OS: Ubuntu 20.10</p>
-<p>PROBLEM: WIFI disconnected when the system sleep wake, can’t reconnect otherwise reboot.</p>
-<span id="more"></span>
-<p>REASON: Power Save service BUG</p>
-<p>Solution:</p>
-<ol>
-<li> Turn off Power Management.</li>
-</ol>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># turn off the power management</span></span><br><span class="line"><span class="attribute">sudo</span> iwconfig &lt;your connection eg:wlp<span class="number">1</span>s<span class="number">0</span>&gt; power <span class="literal">off</span></span><br><span class="line"><span class="comment"># check the status</span></span><br><span class="line"><span class="attribute">sudo</span> iwconfig</span><br><span class="line">  <span class="attribute">Power</span> Management:<span class="literal">off</span></span><br></pre></td></tr></table></figure>
-
-<p>2. Above you will turn off the power management for one time, it will be turn on in next reboot. If you want to close it permanently:</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># modify the power management configuration</span></span><br><span class="line">sudo vim <span class="regexp">/etc/</span>NetworkManager<span class="regexp">/conf.d/</span>default-wifi-powersave-on.conf</span><br><span class="line">  [connection]</span><br><span class="line">  wifi.powersave = <span class="number">3</span></span><br><span class="line"><span class="comment"># replace this value with 2, save it</span></span><br><span class="line"><span class="comment"># reboot, and check the status</span></span><br><span class="line">sudo iwconfig</span><br><span class="line">  Power Management:off</span><br></pre></td></tr></table></figure>
-
-<p>Congras, the WiFi connection will stable now.</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>connection</tag>
-        <tag>ubuntu</tag>
-        <tag>unstable</tag>
-        <tag>wifi</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题</title>
     <url>/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</url>
     <content><![CDATA[<p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
 <p>最终在jupyter的<a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
-<span id="more"></span>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
 
 <p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
@@ -138,8 +141,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>aws</tag>
-        <tag>jupyter</tag>
+        <tag>AWS</tag>
+        <tag>Jupyter</tag>
       </tags>
   </entry>
   <entry>
