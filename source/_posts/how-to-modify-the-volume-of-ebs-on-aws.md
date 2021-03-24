@@ -8,15 +8,16 @@ id: '44'
 categories:
   - - Linux
 date: 2020-10-25 11:38:09
+description: 
 ---
 
 When I created my EC2 instance, since the limitation of free version, I allocated only 8GB to the root volume. I soon realized that this volume was almost used up.
-<!--more-->
+
 As the free instance, Amazon gave us 30GB size to be used. It's better estimate the size according to your purpose before allocate.
 
 Anyway, if you have the same problem, dont worry, let's see how to expand it within 3 steps.
 
-1.  Modify the volume size on the EC2 dashboard.
+## Modify the volume size on the EC2 dashboard
 
 ![AWS DASHBOARD](https://www.niceying.com/wp-content/uploads/2020/10/微信图片_20201025095840.png)
 

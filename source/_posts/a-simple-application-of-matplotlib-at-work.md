@@ -52,6 +52,14 @@ plt.show()
 
 As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:
 
-![Charging Current Limitation](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png)
+<style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png" alt="Charging Current Limitation" />
+  Charging Current Limitation curve
+</div>
 
 There are a lot of libraries very convenient and useful, most of the time we don't need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！

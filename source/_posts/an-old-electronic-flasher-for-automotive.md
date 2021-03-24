@@ -8,11 +8,11 @@ id: '61'
 categories:
   - - HW
 date: 2021-01-12 17:46:50
-description: Analyzing and simulating the working principle of an old electronic flasher.
+description: Analyzing and simulating the working principle of an old electronic flasher. This flasher control unit is used to control the position, direction and emergnecy lights flashing on vehicle. 
 ---
 
 <style>
-  .box {width:450px; text-align:center; font-size:10px; margin:0 auto;}
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
   .box img {border-radius: 10px;}
 </style>
 
@@ -31,7 +31,7 @@ Last month I opened an electronic flasher for automotive, it's an old version wh
 Pin B is the positive 12V, pin E is ground, pin L is connected to a direction light lever. It was replaced by a 820ohm resistor. Let's see what will happen in the simulation.
 
 <div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20simulate.png" alt="simulation"/>
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/flasher%20simulate.png" alt="simulation" />
   Voltage(LED) - T
 </div>
 
