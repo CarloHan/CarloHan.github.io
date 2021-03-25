@@ -1,8 +1,10 @@
 ---
-title: {{ title }}
-date: {{ date }}
+title: Migrated my blog from AWS to Github
 tags:
+  - Website migration
+  - Blog
 categories:
+  - - life
 id:
 description:
 ---
