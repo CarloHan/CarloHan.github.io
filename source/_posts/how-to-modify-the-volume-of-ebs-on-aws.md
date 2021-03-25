@@ -8,8 +8,13 @@ id: '44'
 categories:
   - - Linux
 date: 2020-10-25 11:38:09
-description: 
+description: Thanks to Amazon's generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the 30GB volume more reasonably, sometimes you need to adjust it.
 ---
+
+<style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
 
 When I created my EC2 instance, since the limitation of free version, I allocated only 8GB to the root volume. I soon realized that this volume was almost used up.
 
@@ -19,40 +24,56 @@ Anyway, if you have the same problem, dont worry, let's see how to expand it wit
 
 ## Modify the volume size on the EC2 dashboard
 
-![AWS DASHBOARD](https://www.niceying.com/wp-content/uploads/2020/10/微信图片_20201025095840.png)
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png" alt="AWS DASHBOARD"/>
+</div>
 
-a. On the dashboard, select "ELASTIC BLOCK STORE - Volumes".
+1. On the dashboard, select "ELASTIC BLOCK STORE - Volumes".
 
-![AWS EBS](https://www.niceying.com/wp-content/uploads/2020/10/微信图片_20201025095805.png)
+   <div class="box">
+     <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png" alt="AWS EBS"/>
+   </div>
 
-b. Right click the volume which you want to modify, select "Modify Volume".
+2. Right click the volume which you want to modify, select "Modify Volume".
 
-![Modify volume](https://www.niceying.com/wp-content/uploads/2020/10/微信图片_20201025100644.png)
+   <div class="box">
+     <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png" alt="Modify volume"/>
+   </div>
 
-c. Enter the volume size you want to reset, pay attention if you're using a free instance, the total size don't over 30GB, otherwise you will receive the bill from Amazon.
+3. Enter the volume size you want to reset, pay attention if you're using a free instance, the total size don't over 30GB, otherwise you will receive the bill from Amazon.
 
-2\. Login your instance to modify partition.
+## Login your instance to modify partition
 
-![lsblk](https://www.niceying.com/wp-content/uploads/2020/10/1548507836-5c2c2c17db432_articlex.png)
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/1548507836-5c2c2c17db432_articlex.png" alt="lsblk"/>
+</div>
 
-a. From ssh login to your instance, enter command "`lsblk`", you will see the real size of all volumes and the partitions. You will see that the size of the volume has been modified, but the patition has not used all of the volume yet.
+1. From ssh login to your instance, enter command "`lsblk`", you will see the real size of all volumes and the partitions. You will see that the size of the volume has been modified, but the patition has not used all of the volume yet.
 
-![growpart command](https://www.niceying.com/wp-content/uploads/2020/10/3128725125-5c2c2c196dada_articlex.png)
+   <div class="box">
+     <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/3128725125-5c2c2c196dada_articlex.png" alt="growpart command"/>
+   </div>
 
-b. Enter command "`sudo growpart /dev/xvda 1`", to make partition "xvda1" use all of the volume available.
+2. Enter command "`sudo growpart /dev/xvda 1`", to make partition "xvda1" use all of the volume available.
 
-![lsblk](https://www.niceying.com/wp-content/uploads/2020/10/2109384238-5c2c2c178ead5_articlex.png)
+   <div class="box">
+     <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2109384238-5c2c2c178ead5_articlex.png" alt="lsblk"/>
+   </div>
 
-c. Now you can see that the partition size is equal to the volume size. But...
+3. Now you can see that the partition size is equal to the volume size.
 
-3\. Ajust the filesystem.
+## Ajust the filesystem.
 
-![filesystem not recognize the new space](https://www.niceying.com/wp-content/uploads/2020/10/2922913778-5c2c2c15389c6_articlex.png)
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2922913778-5c2c2c15389c6_articlex.png" alt="filesystem not recognize the new space" />
+</div>
 
-a. But the filesystem has not yet recognized this new space, therefor we have to tell him through the command "`sudo resize2fs /dev/xvda1`". (if your filesystem shows as /dev/root, you should use "`sudo resize2fs /dev/root`")
+1. But the filesystem has not yet recognized this new space, therefor we have to tell him through the command "`sudo resize2fs /dev/xvda1`". (if your filesystem shows as /dev/root, you should use "`sudo resize2fs /dev/root`")
 
-![expand done](https://www.niceying.com/wp-content/uploads/2020/10/微信图片_20201025111614.png)
+   <div class="box">
+     <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png" alt="expand done" />
+   </div>
 
-b. Congratulations, the volume has been expanded.
+2. Congratulations, the volume has been expanded.
 
-PS: Because I forgot screenshot the picture when I was procesing, so there is a few pictures from internet. If it violates your rights, please let me know and I will delete it.
+PS: Since I forgot to screenshot the picture when I was procesing, there is a few pictures from internet. If it violates your rights, please let me know and I will delete them.

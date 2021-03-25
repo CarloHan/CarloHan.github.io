@@ -1,29 +1,30 @@
 ---
-title: SOLVE THE WIFI CONNECTION UNSTABLE ON UBUNTU
+title: Solve The Problem of Unstable WiFi Connection On Ubuntu OS
 tags:
-  - connection
-  - ubuntu
-  - unstable
-  - wifi
+  - Ubuntu
+  - WiFi
+  - Surface Pro
 id: '75'
 categories:
   - - Linux
 date: 2020-11-13 11:36:23
+description: After a period of hard word, I install Ubuntu OS on my Microsoft surface Pro 3 successfully. However, there are a few ghost failures taht greatly affect the user experience, such as WiFi connection unstable.
 ---
 
-PC: Microsoft Surface Pro 3
+## Description
 
-OS: Ubuntu 20.10
++ PC: Microsoft Surface Pro 3
++ OS: Ubuntu 20.10
++ PROBLEM: After the system wakes up from sleep, WiFi cannot automatically reconnect unless restarted
++ REASON: Power Save service BUG
 
-PROBLEM: WIFI disconnected when the system sleep wake, can't reconnect otherwise reboot.
-<!--more-->
-REASON: Power Save service BUG
+## Solution
 
-Solution:
+### Temporary
 
-1.  Turn off Power Management.
+Turn off Power Management
 
-```
+```shell
 # turn off the power management
 sudo iwconfig <your connection eg:wlp1s0> power off
 # check the status
@@ -31,9 +32,11 @@ sudo iwconfig
   Power Management:off
 ```
 
-2\. Above you will turn off the power management for one time, it will be turn on in next reboot. If you want to close it permanently:
+### Permanent
 
-```
+Above you will turn off the power management for one time, it will turn on in next reboot. If you want to close it permanently:
+
+```shell
 # modify the power management configuration
 sudo vim /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
   [connection]
@@ -44,4 +47,4 @@ sudo iwconfig
   Power Management:off
 ```
 
-Congras, the WiFi connection will stable now.
+Congrats, the WiFi connection will be stable now.
