@@ -62,7 +62,7 @@ Anyway, if you have the same problem, dont worry, let's see how to expand it wit
 
 3. Now you can see that the partition size is equal to the volume size.
 
-## Ajust the filesystem.
+## Ajust the filesystem
 
 <div class="box">
   <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2922913778-5c2c2c15389c6_articlex.png" alt="filesystem not recognize the new space" />
