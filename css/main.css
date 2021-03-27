@@ -970,12 +970,12 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 65em;
+    width: 60em;
   }
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 65%;
+    width: 60%;
   }
 }
 @media (max-width: 767px) {
@@ -992,12 +992,12 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 65em;
+    width: 60em;
   }
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 65%;
+    width: 60%;
   }
 }
 .site-brand-container {
@@ -1214,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #508cb3;
+  background: #2bd60e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1431,12 +1431,12 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 65em;
+    width: 60em;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 65%;
+    width: 60%;
   }
 }
 .languages {
@@ -2315,12 +2315,12 @@ ul.breadcrumb li + li:last-child {
 }
 @media (min-width: 1200px) {
   .header {
-    width: 65em;
+    width: 60em;
   }
 }
 @media (min-width: 1600px) {
   .header {
-    width: 65%;
+    width: 60%;
   }
 }
 @media (max-width: 991px) {
@@ -2734,7 +2734,8 @@ body {
   background-image: url("https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/blog_background_1.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 .content-wrap {
   opacity: 0.9;
