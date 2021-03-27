@@ -11,7 +11,16 @@
 <h2 id="A-simple-example"><a href="#A-simple-example" class="headerlink" title="A simple example"></a>A simple example</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data1 = np.array([<span class="number">2.65</span>, <span class="number">2.93</span>, <span class="number">4.015</span>, <span class="number">4.05</span>])</span><br><span class="line">data2 = np.array([<span class="number">5</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>])</span><br><span class="line">data3 = np.array([<span class="number">2.65</span>, <span class="number">2.79</span>, <span class="number">4.03</span>, <span class="number">4.05</span>])</span><br><span class="line">data4 = np.array([<span class="number">5</span>, <span class="number">12.5</span>, <span class="number">12.5</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(data1, data2, label=<span class="string">&#x27;16A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.plot(data3, data4, label=<span class="string">&#x27;10A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.axis([<span class="number">2.65</span>, <span class="number">4.1</span>, <span class="number">0</span>, <span class="number">25</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.65, 5)&#x27;</span>, xy=(<span class="number">2.65</span>,<span class="number">5</span>), xytext=(<span class="number">2.8</span>,<span class="number">5</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.79, 12.5)&#x27;</span>, xy=(<span class="number">2.79</span>,<span class="number">12.5</span>), xytext=(<span class="number">2.9</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.93, 20)&#x27;</span>, xy=(<span class="number">2.93</span>,<span class="number">20</span>), xytext=(<span class="number">3.1</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.015, 20)&#x27;</span>, xy=(<span class="number">4.015</span>,<span class="number">20</span>), xytext=(<span class="number">3.6</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.03, 12.5)&#x27;</span>, xy=(<span class="number">4.03</span>,<span class="number">12.5</span>), xytext=(<span class="number">3.65</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.05, 0)&#x27;</span>, xy=(<span class="number">4.05</span>,<span class="number">0</span>), xytext=(<span class="number">3.75</span>,<span class="number">2</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Cell Voltage/V&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Charging Current/A&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Charging Current Limitation&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="number">2</span>)</span><br><span class="line">plt.savefig(<span class="string">&#x27;Charging current limitation(10A16A).png&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <h2 id="Graphic"><a href="#Graphic" class="headerlink" title="Graphic"></a>Graphic</h2><p>As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:</p>
-<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png" alt="Charging Current Limitation"></p>
+<style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png" alt="Charging Current Limitation" />
+  Charging Current Limitation curve
+</div>
+
 <p>There are a lot of libraries very convenient and useful, most of the time we don’t need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！</p>
 ]]></content>
       <categories>
@@ -28,7 +37,7 @@
     <title>An old electronic flasher for automotive</title>
     <url>/2021/01/12/an-old-electronic-flasher-for-automotive/</url>
     <content><![CDATA[<style>
-  .box {width:65%; text-align:center; font-size:10px; margin:0 auto;}
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
   .box img {border-radius: 10px;}
 </style>
 
@@ -61,63 +70,87 @@
       </tags>
   </entry>
   <entry>
-    <title>SOLVE THE WIFI CONNECTION UNSTABLE ON UBUNTU</title>
+    <title>Solve The Problem of Unstable WiFi Connection On Ubuntu OS</title>
     <url>/2020/11/13/solve-the-wifi-connection-unstable-on-ubuntu/</url>
-    <content><![CDATA[<p>PC: Microsoft Surface Pro 3</p>
-<p>OS: Ubuntu 20.10</p>
-<p>PROBLEM: WIFI disconnected when the system sleep wake, can’t reconnect otherwise reboot.</p>
-<span id="more"></span>
-<p>REASON: Power Save service BUG</p>
-<p>Solution:</p>
-<ol>
-<li> Turn off Power Management.</li>
-</ol>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># turn off the power management</span></span><br><span class="line"><span class="attribute">sudo</span> iwconfig &lt;your connection eg:wlp<span class="number">1</span>s<span class="number">0</span>&gt; power <span class="literal">off</span></span><br><span class="line"><span class="comment"># check the status</span></span><br><span class="line"><span class="attribute">sudo</span> iwconfig</span><br><span class="line">  <span class="attribute">Power</span> Management:<span class="literal">off</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><ul>
+<li>PC: Microsoft Surface Pro 3</li>
+<li>OS: Ubuntu 20.10</li>
+<li>PROBLEM: After the system wakes up from sleep, WiFi cannot automatically reconnect unless restarted</li>
+<li>REASON: Power Save service BUG</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Temporary"><a href="#Temporary" class="headerlink" title="Temporary"></a>Temporary</h3><p>Turn off Power Management</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> turn off the power management</span></span><br><span class="line">sudo iwconfig &lt;your connection eg:wlp1s0&gt; power off</span><br><span class="line"><span class="meta">#</span><span class="bash"> check the status</span></span><br><span class="line">sudo iwconfig</span><br><span class="line">  Power Management:off</span><br></pre></td></tr></table></figure>
 
-<p>2. Above you will turn off the power management for one time, it will be turn on in next reboot. If you want to close it permanently:</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># modify the power management configuration</span></span><br><span class="line">sudo vim <span class="regexp">/etc/</span>NetworkManager<span class="regexp">/conf.d/</span>default-wifi-powersave-on.conf</span><br><span class="line">  [connection]</span><br><span class="line">  wifi.powersave = <span class="number">3</span></span><br><span class="line"><span class="comment"># replace this value with 2, save it</span></span><br><span class="line"><span class="comment"># reboot, and check the status</span></span><br><span class="line">sudo iwconfig</span><br><span class="line">  Power Management:off</span><br></pre></td></tr></table></figure>
+<h3 id="Permanent"><a href="#Permanent" class="headerlink" title="Permanent"></a>Permanent</h3><p>Above you will turn off the power management for one time, it will turn on in next reboot. If you want to close it permanently:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> modify the power management configuration</span></span><br><span class="line">sudo vim /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf</span><br><span class="line">  [connection]</span><br><span class="line">  wifi.powersave = 3</span><br><span class="line"><span class="meta">#</span><span class="bash"> replace this value with 2, save it</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> reboot, and check the status</span></span><br><span class="line">sudo iwconfig</span><br><span class="line">  Power Management:off</span><br></pre></td></tr></table></figure>
 
-<p>Congras, the WiFi connection will stable now.</p>
+<p>Congrats, the WiFi connection will be stable now.</p>
 ]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>connection</tag>
-        <tag>ubuntu</tag>
-        <tag>unstable</tag>
-        <tag>wifi</tag>
+        <tag>Ubuntu</tag>
+        <tag>WiFi</tag>
+        <tag>Surface Pro</tag>
       </tags>
   </entry>
   <entry>
     <title>How to modify the volume of EBS on AWS</title>
     <url>/2020/10/25/how-to-modify-the-volume-of-ebs-on-aws/</url>
-    <content><![CDATA[<p>When I created my EC2 instance, since the limitation of free version, I allocated only 8GB to the root volume. I soon realized that this volume was almost used up.</p>
-<span id="more"></span>
+    <content><![CDATA[<style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+
+<p>When I created my EC2 instance, since the limitation of free version, I allocated only 8GB to the root volume. I soon realized that this volume was almost used up.</p>
 <p>As the free instance, Amazon gave us 30GB size to be used. It’s better estimate the size according to your purpose before allocate.</p>
 <p>Anyway, if you have the same problem, dont worry, let’s see how to expand it within 3 steps.</p>
+<h2 id="Modify-the-volume-size-on-the-EC2-dashboard"><a href="#Modify-the-volume-size-on-the-EC2-dashboard" class="headerlink" title="Modify the volume size on the EC2 dashboard"></a>Modify the volume size on the EC2 dashboard</h2><div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png" alt="AWS DASHBOARD"/>
+</div>
+
 <ol>
-<li> Modify the volume size on the EC2 dashboard.</li>
+<li><p>On the dashboard, select “ELASTIC BLOCK STORE - Volumes”.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png" alt="AWS EBS"/>
+</div></li>
+<li><p>Right click the volume which you want to modify, select “Modify Volume”.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png" alt="Modify volume"/>
+</div></li>
+<li><p>Enter the volume size you want to reset, pay attention if you’re using a free instance, the total size don’t over 30GB, otherwise you will receive the bill from Amazon.</p>
+</li>
 </ol>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png" alt="AWS DASHBOARD"></p>
-<p>a. On the dashboard, select “ELASTIC BLOCK STORE - Volumes”.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png" alt="AWS EBS"></p>
-<p>b. Right click the volume which you want to modify, select “Modify Volume”.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png" alt="Modify volume"></p>
-<p>c. Enter the volume size you want to reset, pay attention if you’re using a free instance, the total size don’t over 30GB, otherwise you will receive the bill from Amazon.</p>
-<p>2. Login your instance to modify partition.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/1548507836-5c2c2c17db432_articlex.png" alt="lsblk"></p>
-<p>a. From ssh login to your instance, enter command “<code>lsblk</code>“, you will see the real size of all volumes and the partitions. You will see that the size of the volume has been modified, but the patition has not used all of the volume yet.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/3128725125-5c2c2c196dada_articlex.png" alt="growpart command"></p>
-<p>b. Enter command “<code>sudo growpart /dev/xvda 1</code>“, to make partition “xvda1” use all of the volume available.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/2109384238-5c2c2c178ead5_articlex.png" alt="lsblk"></p>
-<p>c. Now you can see that the partition size is equal to the volume size. But…</p>
-<p>3. Ajust the filesystem.</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/2922913778-5c2c2c15389c6_articlex.png" alt="filesystem not recognize the new space"></p>
-<p>a. But the filesystem has not yet recognized this new space, therefor we have to tell him through the command “<code>sudo resize2fs /dev/xvda1</code>“. (if your filesystem shows as /dev/root, you should use “<code>sudo resize2fs /dev/root</code>“)</p>
-<p><img src="https://www.niceying.com/wp-content/uploads/2020/10/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png" alt="expand done"></p>
-<p>b. Congratulations, the volume has been expanded.</p>
-<p>PS: Because I forgot screenshot the picture when I was procesing, so there is a few pictures from internet. If it violates your rights, please let me know and I will delete it.</p>
+<h2 id="Login-your-instance-to-modify-partition"><a href="#Login-your-instance-to-modify-partition" class="headerlink" title="Login your instance to modify partition"></a>Login your instance to modify partition</h2><div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/1548507836-5c2c2c17db432_articlex.png" alt="lsblk"/>
+</div>
+
+<ol>
+<li><p>From ssh login to your instance, enter command “<code>lsblk</code>“, you will see the real size of all volumes and the partitions. You will see that the size of the volume has been modified, but the patition has not used all of the volume yet.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/3128725125-5c2c2c196dada_articlex.png" alt="growpart command"/>
+</div></li>
+<li><p>Enter command “<code>sudo growpart /dev/xvda 1</code>“, to make partition “xvda1” use all of the volume available.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2109384238-5c2c2c178ead5_articlex.png" alt="lsblk"/>
+</div></li>
+<li><p>Now you can see that the partition size is equal to the volume size.</p>
+</li>
+</ol>
+<h2 id="Ajust-the-filesystem"><a href="#Ajust-the-filesystem" class="headerlink" title="Ajust the filesystem"></a>Ajust the filesystem</h2><div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2922913778-5c2c2c15389c6_articlex.png" alt="filesystem not recognize the new space" />
+</div>
+
+<ol>
+<li><p>But the filesystem has not yet recognized this new space, therefor we have to tell him through the command “<code>sudo resize2fs /dev/xvda1</code>“. (if your filesystem shows as /dev/root, you should use “<code>sudo resize2fs /dev/root</code>“)</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png" alt="expand done" />
+</div></li>
+<li><p>Congratulations, the volume has been expanded.</p>
+</li>
+</ol>
+<p>PS: Since I forgot to screenshot the picture when I was procesing, there is a few pictures from internet. If it violates your rights, please let me know and I will delete them.</p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -146,6 +179,17 @@
       </tags>
   </entry>
   <entry>
+    <title>我的第一个私人博客(My first blog)</title>
+    <url>/2020/10/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A7%81%E4%BA%BA%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>很早就想建起一个属于自己的博客，用来记录学习的过程。</p>
+<p>学习中发现一个问题，也许是年龄越来越大，记忆力逐渐衰减，很多网络上学到的知识转瞬即忘。比如安装linux系统时，碰到一些奇怪的问题，在网上查找后找到了解决办法，然而下次碰到同样的问题，依然需要去网上找答案。</p>
+<p>于是这个个人博客应运而生，用于记录学习中碰到的各类问题，以方便自己查阅，万一还能够帮助到其他人，就再好不过了！</p>
+]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
+  </entry>
+  <entry>
     <title>如何安装无桌面的Raspberry Pi OS</title>
     <url>/2020/10/12/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%97%A0%E6%A1%8C%E9%9D%A2%E7%9A%84raspberry-pi-os/</url>
     <content><![CDATA[<p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
@@ -166,16 +210,5 @@
         <tag>Headless</tag>
         <tag>raspberry OS</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>我的第一个私人博客(My first blog)</title>
-    <url>/2020/10/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A7%81%E4%BA%BA%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p>很早就想建起一个属于自己的博客，用来记录学习的过程。</p>
-<p>学习中发现一个问题，也许是年龄越来越大，记忆力逐渐衰减，很多网络上学到的知识转瞬即忘。比如安装linux系统时，碰到一些奇怪的问题，在网上查找后找到了解决办法，然而下次碰到同样的问题，依然需要去网上找答案。</p>
-<p>于是这个个人博客应运而生，用于记录学习中碰到的各类问题，以方便自己查阅，万一还能够帮助到其他人，就再好不过了！</p>
-]]></content>
-      <categories>
-        <category>life</category>
-      </categories>
   </entry>
 </search>
