@@ -23,7 +23,7 @@ description: I spent a week to migrated my blog from AWS to GIthub pages. Thanks
 </div>
 
 Although I have registered on GitHub more than 6 years, I did't really start using it until last year, then felt its convenience immediately. During the touch I got that GitHub provide a static site hosting service named GitHub Pages. With this service, you can host your site on 'github.io' domain or your custom domain fastly.
-The default site generator is JekyII. Of course there are a lot of open source generator which support GitHub Pages you can choose, such as my choice: Hexo.
+The default site generator on GitHub is JekyII. Of course there are a lot of open source generator which support GitHub Pages you can choose, such as my choice: Hexo.
 
 ## About GitHub Pages and Hexo
 
@@ -31,6 +31,8 @@ The default site generator is JekyII. Of course there are a lot of open source g
 >
 >**[Hexo](https://hexo.io/)** is a fast, simple & powerful blog framework. It includes a lot of powerful features such as fast blazing, Markdown support, one-command deployment and plugin support.
 
-Assuming that you are familiar with GitHub, the following are the main steps to build your site from 0.
+## Custom domain
+
+After deployed your site, the default domain will be 'www.[your name].github.io', of course you can custom it if you have a personal domain: save your domain in the repository setting, then go to your DNS server add an A record and a CNAME record, done. For the specific step click [here](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages).
 
 ## 
