@@ -3,7 +3,7 @@ title: 远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题
 tags:
   - AWS
   - Jupyter
-id: '30'
+id: '2'
 categories:
   - - Linux
 date: 2020-10-09 17:31:01

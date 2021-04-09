@@ -4,7 +4,7 @@ tags:
   - analog cicuit
   - flasher
   - multivibrator
-id: '61'
+id: '6'
 categories:
   - - HW
 date: 2021-01-12 17:46:50

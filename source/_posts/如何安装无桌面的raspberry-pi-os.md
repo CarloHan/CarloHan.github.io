@@ -3,7 +3,7 @@ title: 如何安装无桌面的Raspberry Pi OS
 tags:
   - Headless
   - raspberry OS
-id: '33'
+id: '3'
 categories:
   - - Raspberry
 date: 2020-10-12 23:22:07
