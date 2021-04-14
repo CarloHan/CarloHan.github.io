@@ -34,6 +34,6 @@ repeat while (Vc > 90% Vbat ?) is (no) not (yes)
 Pre-charge relay open;
 @enduml
 ```
-
+![](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210414230617.png)
 
 
