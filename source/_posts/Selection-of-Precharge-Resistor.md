@@ -13,7 +13,14 @@ description: The model selection of the pre-charge resistor is very important fo
   .box img {border-radius: 10px;}
 </style>
 
-Last week I met a new issue with our vehicle: pre-charge failure. The behavior was that the negative contactor and the pre-charge relay closed then open after turn on the key. After checking the whole pre-charge circuit I found that the pre-charge resistor was damaged. This is the first time that a pre-charge failure has occurred， and of course it caught my attention.
+Last week I met a new issue with our vehicle: pre-charge failure. The behavior was that the negative contactor and the pre-charge relay closed then open after turn on the key. After checking the whole pre-charge circuit I found that the pre-charge resistor was damaged. 
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210415163027.png" alt="pre-charge resistor" />
+  Pre-charge resistor
+</div>
+
+This is the first time that a pre-charge failure has occurred， and of course it caught my attention.
 
 ## Principle and function of pre-charge circuit
 
@@ -23,6 +30,8 @@ In the power system of an EV, the power battery is connected to a lot of high vo
   Pre-charge circuit
 </div>
 The above is a typical pre-charge circuit, it is composed by a relay and a resistor. When the power is on, the pre-charge relay was closed before the positive contactor, and the current was limited by the pre-charge resistor. As long as the voltage of capacitor goes up to 90% ~ 95% of the battery voltage, the positive contactor will be closed and the pre-charge relay will be opened. <br/>
+
+<div class="box">
 
 ```plantuml
 @startuml
@@ -34,6 +43,11 @@ repeat while (Vc > 90% Vbat ?) is (no) not (yes)
 Pre-charge relay open;
 @enduml
 ```
-![](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210414230617.png)
 
+</div>
 
+This is a typical first-order RC series circuit. In this circuit, C has been confirmed by the motor controller, what we need to do is select a matched resistor.
+
+Assuming that the capacity was zero in the beginning, from KVL we got: $$ U_{Bat} = RC{dU_c \over dt} + U_c $$
+Thus: $$ U_c = U_{Bat} - U_{Bat}e^{-{t \over \tau}} = U_{Bat}(1 - e^{-{t \over \tau}})$$
+Where: $$ \tau = RC $$
