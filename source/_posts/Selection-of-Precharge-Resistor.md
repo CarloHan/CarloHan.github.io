@@ -46,8 +46,21 @@ Pre-charge relay open;
 
 </div>
 
-This is a typical first-order RC series circuit. In this circuit, C has been confirmed by the motor controller, what we need to do is select a matched resistor.
-
-Assuming that the capacity was zero in the beginning, from KVL we got: $$ U_{Bat} = RC{dU_c \over dt} + U_c $$
-Thus: $$ U_c = U_{Bat} - U_{Bat}e^{-{t \over \tau}} = U_{Bat}(1 - e^{-{t \over \tau}})$$
+This is a typical first-order RC series circuit. Assuming that the capacity was zero at the beginning, due to the KVL function we got: $$ U_{Bat} = RC{dU_c \over dt} + U_c $$
+Then: $$ U_c = U_{Bat} - U_{Bat}e^{-{t \over \tau}} = U_{Bat}(1 - e^{-{t \over \tau}})$$
 Where: $$ \tau = RC $$
+Thus:
+
+ ```math
+t = RC, U_c = 0.63U_{Bat} \\
+t = 2RC, U_c = 0.86U_{Bat} \\
+t = 3RC, U_c = 0.95U_{Bat} \\
+t = 4RC, U_c = 0.98U_{Bat} \\
+t = 5RC, U_c = 0.99U_{Bat} \\
+ ```
+
+At this point, it is concluded that after 3 ~ 5 $ RC $ period, the charging process is over.
+
+## The basis for the pre-charge resistor selection
+
+For the selection of pre-charge resistor, specifically, it includes three parameters: resistance $ R $, average power $ P_A $, and peak power $ P_P $. Others input parameters such as pre-charge time, capacitance value, and battery voltage are known. Now we can start the 
