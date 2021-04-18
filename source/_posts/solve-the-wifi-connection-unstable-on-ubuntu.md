@@ -8,7 +8,7 @@ id: '5'
 categories:
   - - Linux
 date: 2020-11-13 11:36:23
-description: After a period of hard word, I install Ubuntu OS on my Microsoft surface Pro 3 successfully. However, there are a few ghost failures taht greatly affect the user experience, such as WiFi connection unstable.
+description: After a period of hard word, I install Ubuntu OS on my Microsoft surface Pro 3 successfully. However, there are a few ghost failures that greatly affect the user experience, such as WiFi connection unstable.
 ---
 
 ## Description
