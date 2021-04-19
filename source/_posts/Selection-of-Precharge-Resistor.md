@@ -21,11 +21,11 @@ Last week I met a new issue with our vehicle: pre-charge failure. The behavior w
   Pre-charge resistor
 </div>
 
-This is the first time that a pre-charge failure has occurred， and of course it caught my attention.
+This is the first time that a pre-charge failure has occurred, of course it caught my attention.
 
 ## Principle and function of pre-charge circuit
 
-In the power system of an EV, the power battery is connected to a lot of high voltage components via PDU(Power Distribution Unit), such as the motor controller, OBC, DC converter, A/C(Air Condition), PTC and so on. Usually in these components there are capacitor, especially in the motor controller, the capacity of capacitor could over 2000uF. If the initial capacity is zero, once power on, it is equivalent to a short circuit, and the current is so large that the battery, contactor and others components will be damaged. Therefore, a pre-charge circuit is necessary for the power system to protect the main contactor, motor controller and so on.
+In the power system of an EV, the power battery is connected to a lot of high voltage components via PDU(Power Distribution Unit), such as the motor controller, OBC, DC-DC, A/C(Air Condition), PTC and so on. Usually in these components there are capacitor, especially in the motor controller, the capacity of capacitor could over $ 2000\mu F $. If the initial capacity is zero, once power on, it is equivalent to a short circuit, and the current is so large that the battery, contactor and others components will be damaged. Therefore, a pre-charge circuit is necessary for the power system to protect the main contactor, motor controller and so on.
 <div class="box">
   <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/precharge%20circuit_new.jpg" alt="pre-charge circuit" />
   Pre-charge circuit
@@ -66,7 +66,7 @@ t = 5RC, U_c = 0.99U_{Bat} \\
 
 At this point, it is concluded that after 3 ~ 5 $ RC $ period, the charging process is over.
 
-## The regular basis for the pre-charge resistor selection
+## The theory basis for the pre-charge resistor selection
 
 For the selection of pre-charge resistor, specifically, it includes three parameters: resistance $ R $, average power $ P_A $, and peak power $ P_P $. Others input parameters such as pre-charge time, capacitance value, and battery voltage are known.
 
@@ -104,4 +104,47 @@ $$ P_P = {U_{Bat}^2 \over R} = {500^2 / 166.7} = 1499.7W $$
 
 ## Simulation
 
-Now let us verify the theory calculation above via simulation module.
+Now let us verify the theory calculation above via a simulation model.
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210419181035.jpg" alt="pre-charge simulink" />
+  Pre-charge simulation
+</div>
+
+From the simulation we got $ U_C = 0.95U_{Bat} $ at $ t = 1s $:
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210419181727.jpg" alt="pre-charge UC" />
+  Capacitor voltage
+</div>
+
+What we have to caution is the behavior of the pre-charge resistor's power:
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210419182614.jpg" alt="pre-charge RP" />
+  Power behavior
+</div>
+
+As you can see, the peak power of the pre-charge resistor is $ 1497W $ while the moment the contactor closes, which verified the correction of our calculation.
+
+## The realistic basis for the pre-charge resistor selection
+
+From the calculation we got the main parameters of the pre-charge resistor is:
+
+$$ R \leqslant 166.7 \Omega, \\ P_A \geqslant 250W, \\ P_P \geqslant 1499W $$
+
+However, there are a lot of conditions we need to consider in the practical applications, for example the assemble space limitation, cost limitation. Below is a temperature rise curve from the datasheet of YAGEO pre-charge resistor:
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210419231933.jpg" alt="Yageo temperature-load" />
+  YAGEO temperature rise curve
+</div>
+
+According to this curve, the temperature rise up over $ 250^\circ C $ if a pre-charge resistor with rated power of $ 100W $ at fully load. In fact, in a very short time, the heat can't spread to the aluminum shell or ceramic shell outside the pre-charge resistor, it can be considered as a transient pulse charging process. So the power selection for a pre-charge resistor is based on the maximum power, not the steady-state power. Usually on the datasheet of a pre-charge resistor, it must have the description of the peak power, for example:
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210419232337.jpg" alt="Yageo overload" />
+  YAGEO short time over load
+</div>
+
+"5 times of rated power for 5 sec", It means we can consider the peak power in 0.2 times derating. For our example the $ P_P $ equal to $ 300W $.
