@@ -133,7 +133,7 @@ From the calculation we got the main parameters of the pre-charge resistor is:
 
 $$ R \leqslant 166.7 \Omega, \\ P_A \geqslant 250W, \\ P_P \geqslant 1499W $$
 
-However, there are a lot of conditions we need to consider in the practical applications, for example the assemble space limitation, cost limitation. Below is a temperature rise curve from the datasheet of YAGEO pre-charge resistor:
+Below is a temperature rise curve from the datasheet of YAGEO pre-charge resistor:
 
 <div class="box">
   <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210419231933.jpg" alt="Yageo temperature-load" />
@@ -147,4 +147,12 @@ According to this curve, the temperature rise up over $ 250^\circ C $ if a pre-c
   YAGEO short time over load
 </div>
 
-"5 times of rated power for 5 sec", It means we can consider the peak power in 0.2 times derating. For our example the $ P_P $ equal to $ 300W $.
+"5 times of rated power for 5 sec", It means we can consider the peak power with 0.2 times derating. For our example the $ P_P $ will be derated to $ 300W $. At this point we can initially determine the model of the pre-charge resistor:
+
+$$ R = 167 \Omega \\ P = 300W$$
+
+Then we need to consider the practical applications, such as the assemble space limitation, cost limitation and so on. Also there is a case need to be paid attention which is "high frequency operation". Imaging that someone turn the vehicle on and off repeatedly in a short time. In this case, the pre-charge resistor was in a fully loaded state for a long time, and the temperature will increased so high that the resistor could be damaged. Therefore the power of the resistor must be reserved a proper margin. 
+
+
+
+
