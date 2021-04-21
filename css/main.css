@@ -1058,7 +1058,7 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Roboto', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Merienda', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1242,7 +1242,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #06e3c3;
+  background: #d0633b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
