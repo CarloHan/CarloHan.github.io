@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Permanent Marker:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Lato:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -20,31 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Thanks to Amazon&#39;s generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the">
+  <meta name="description" content="In order to running OpenCV more faster on Raspberry Pi, I have to reinstall the Raspberry Pi OS with the Lit version. With this version, the Raspberry Pi will no longer have a GUI(desktop), and you ha">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to modify the volume of EBS on AWS">
-<meta property="og:url" content="http://example.com/2020/10/25/how-to-modify-the-volume-of-ebs-on-aws/index.html">
+<meta property="og:title" content="如何安装无桌面的Raspberry Pi OS">
+<meta property="og:url" content="http://example.com/posts/7170/index.html">
 <meta property="og:site_name" content="HAN&#39;s BLOG">
-<meta property="og:description" content="Thanks to Amazon&#39;s generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the">
+<meta property="og:description" content="In order to running OpenCV more faster on Raspberry Pi, I have to reinstall the Raspberry Pi OS with the Lit version. With this version, the Raspberry Pi will no longer have a GUI(desktop), and you ha">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/1548507836-5c2c2c17db432_articlex.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/3128725125-5c2c2c196dada_articlex.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2109384238-5c2c2c178ead5_articlex.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2922913778-5c2c2c15389c6_articlex.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png">
-<meta property="article:published_time" content="2020-10-25T10:38:09.000Z">
-<meta property="article:modified_time" content="2021-03-27T09:04:55.989Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/raspberry%20pi%20image.png">
+<meta property="article:published_time" content="2020-10-12T21:22:07.000Z">
+<meta property="article:modified_time" content="2021-04-21T20:39:14.851Z">
 <meta property="article:author" content="Carlo Han">
-<meta property="article:tag" content="aws">
-<meta property="article:tag" content="expand">
-<meta property="article:tag" content="volum">
+<meta property="article:tag" content="Headless">
+<meta property="article:tag" content="raspberry OS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/raspberry%20pi%20image.png">
 
-<link rel="canonical" href="http://example.com/2020/10/25/how-to-modify-the-volume-of-ebs-on-aws/">
+<link rel="canonical" href="http://example.com/posts/7170/">
 
 
 <script id="page-configurations">
@@ -57,7 +49,7 @@
   };
 </script>
 
-  <title>How to modify the volume of EBS on AWS | HAN's BLOG</title>
+  <title>如何安装无桌面的Raspberry Pi OS | HAN's BLOG</title>
   
 
 
@@ -201,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/25/how-to-modify-the-volume-of-ebs-on-aws/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/7170/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
@@ -214,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          How to modify the volume of EBS on AWS
+          如何安装无桌面的Raspberry Pi OS
         </h1>
 
         <div class="post-meta">
@@ -224,14 +216,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-10-25 11:38:09" itemprop="dateCreated datePublished" datetime="2020-10-25T11:38:09+01:00">2020-10-25</time>
+              <time title="Created: 2020-10-12 23:22:07" itemprop="dateCreated datePublished" datetime="2020-10-12T23:22:07+02:00">2020-10-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-27 10:04:55" itemprop="dateModified" datetime="2021-03-27T10:04:55+01:00">2021-03-27</time>
+                <time title="Modified: 2021-04-21 22:39:14" itemprop="dateModified" datetime="2021-04-21T22:39:14+02:00">2021-04-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,7 +231,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/Raspberry/" itemprop="url" rel="index"><span itemprop="name">Raspberry</span></a>
                 </span>
             </span>
 
@@ -255,7 +247,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.4k</span>
+              <span>905</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -263,7 +255,7 @@
               </span>
               <span>1 mins.</span>
             </span>
-            <div class="post-description">Thanks to Amazon's generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the 30GB volume more reasonably, sometimes you need to adjust it.</div>
+            <div class="post-description">In order to running OpenCV more faster on Raspberry Pi, I have to reinstall the Raspberry Pi OS with the Lit version. With this version, the Raspberry Pi will no longer have a GUI(desktop), and you have to talk with him through headless mode, which means SSH. In this case, the initial configuration is very important.</div>
 
         </div>
       </header>
@@ -274,59 +266,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <style>
-  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
-  .box img {border-radius: 10px;}
-</style>
-
-<p>When I created my EC2 instance, since the limitation of free version, I allocated only 8GB to the root volume. I soon realized that this volume was almost used up.</p>
-<p>As the free instance, Amazon gave us 30GB size to be used. It’s better estimate the size according to your purpose before allocate.</p>
-<p>Anyway, if you have the same problem, dont worry, let’s see how to expand it within 3 steps.</p>
-<h2 id="Modify-the-volume-size-on-the-EC2-dashboard"><a href="#Modify-the-volume-size-on-the-EC2-dashboard" class="headerlink" title="Modify the volume size on the EC2 dashboard"></a>Modify the volume size on the EC2 dashboard</h2><div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png" alt="AWS DASHBOARD"/>
-</div>
-
-<ol>
-<li><p>On the dashboard, select “ELASTIC BLOCK STORE - Volumes”.</p>
-<div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png" alt="AWS EBS"/>
-</div></li>
-<li><p>Right click the volume which you want to modify, select “Modify Volume”.</p>
-<div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png" alt="Modify volume"/>
-</div></li>
-<li><p>Enter the volume size you want to reset, pay attention if you’re using a free instance, the total size don’t over 30GB, otherwise you will receive the bill from Amazon.</p>
-</li>
-</ol>
-<h2 id="Login-your-instance-to-modify-partition"><a href="#Login-your-instance-to-modify-partition" class="headerlink" title="Login your instance to modify partition"></a>Login your instance to modify partition</h2><div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/1548507836-5c2c2c17db432_articlex.png" alt="lsblk"/>
-</div>
-
-<ol>
-<li><p>From ssh login to your instance, enter command “<code>lsblk</code>“, you will see the real size of all volumes and the partitions. You will see that the size of the volume has been modified, but the patition has not used all of the volume yet.</p>
-<div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/3128725125-5c2c2c196dada_articlex.png" alt="growpart command"/>
-</div></li>
-<li><p>Enter command “<code>sudo growpart /dev/xvda 1</code>“, to make partition “xvda1” use all of the volume available.</p>
-<div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2109384238-5c2c2c178ead5_articlex.png" alt="lsblk"/>
-</div></li>
-<li><p>Now you can see that the partition size is equal to the volume size.</p>
-</li>
-</ol>
-<h2 id="Ajust-the-filesystem"><a href="#Ajust-the-filesystem" class="headerlink" title="Ajust the filesystem"></a>Ajust the filesystem</h2><div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2922913778-5c2c2c15389c6_articlex.png" alt="filesystem not recognize the new space" />
-</div>
-
-<ol>
-<li><p>But the filesystem has not yet recognized this new space, therefor we have to tell him through the command “<code>sudo resize2fs /dev/xvda1</code>“. (if your filesystem shows as /dev/root, you should use “<code>sudo resize2fs /dev/root</code>“)</p>
-<div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png" alt="expand done" />
-</div></li>
-<li><p>Congratulations, the volume has been expanded.</p>
-</li>
-</ol>
-<p>PS: Since I forgot to screenshot the picture when I was procesing, there is a few pictures from internet. If it violates your rights, please let me know and I will delete them.</p>
+        <p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
+<p>由于之前为了安装宝塔面板，使用了OPENFANS发布的<a target="_blank" rel="noopener" href="https://gitee.com/openfans-community/Debian-Pi-Aarch64">Debian-Pi-Aarch64</a>系统，索性重新制作一遍系统。因为TF卡比较小，最终选择了无桌面的官方系统。</p>
+<h2 id="制作系统镜像"><a class="markdownIt-Anchor" href="#制作系统镜像"></a> 制作系统镜像</h2>
+<p>第一步把系统镜像烧写到TF卡，由于官方提供了<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>，制作过程变得非常简单。</p>
+<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/raspberry%20pi%20image.png" alt="Raspberry Pi Imager" /></p>
+<p>只需将TF卡插在电脑上，然后打开Raspberry Pi Imager，选择你想制作的系统，再选择TF卡，点击写入，等待写入完成即可。</p>
+<h2 id="提前配置网络环境"><a class="markdownIt-Anchor" href="#提前配置网络环境"></a> 提前配置网络环境</h2>
+<p>下面重点来了，因为是无桌面系统，不能连接显示器键盘鼠标来进行wifi连接，账号设置等操作，所以需要使用ssh进行连接，并手动配置wifi。</p>
+<p>系统写入完成后，不要拔出TF卡，直接在电脑上打开TF卡，在root根目录下，新建一个文本文档取名为ssh并删掉后缀.txt。之后再新建一个文本文档取名为wpa_supplicant，后缀.conf，使用VScode或其他编辑器打开这个文档，在里面进行wifi配置如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">country=IT    #所在国家代码</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line"></span><br><span class="line">network=&#123;     #使用network可添加多个wifi，根据priority优先级依次连接</span><br><span class="line"> ssid=&quot;&lt;WiFi名,不能有中文&gt;&quot; </span><br><span class="line"> psk=&quot;&lt;密码&gt;&quot; </span><br><span class="line"> priority=10 </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">network=&#123;</span><br><span class="line"> ssid=&quot;&lt;第二个WiFi名&gt;&quot;</span><br><span class="line"> psk=&quot;&lt;第二个密码&gt;&quot; </span><br><span class="line"> priority=&lt;替换成数字，数字越大代表优先级越高&gt; </span><br></pre></td></tr></table></figure>
+<p>至此，前戏部分就结束了，将TF卡拔出，插在Pi上，然后接通电源，看到黄灯闪烁则系统运行成功。下一步需要找到你的Pi所分配到的IP地址，进行ssh连接。</p>
 
     </div>
 
@@ -342,7 +292,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://example.com/2020/10/25/how-to-modify-the-volume-of-ebs-on-aws/" title="How to modify the volume of EBS on AWS">http://example.com/2020/10/25/how-to-modify-the-volume-of-ebs-on-aws/</a>
+    <a href="http://example.com/posts/7170/" title="如何安装无桌面的Raspberry Pi OS">http://example.com/posts/7170/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a>，please indicate the source if reprinted.
@@ -353,9 +303,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/aws/" rel="tag"><i class="fa fa-tag"></i> aws</a>
-              <a href="/tags/expand/" rel="tag"><i class="fa fa-tag"></i> expand</a>
-              <a href="/tags/volum/" rel="tag"><i class="fa fa-tag"></i> volum</a>
+              <a href="/tags/Headless/" rel="tag"><i class="fa fa-tag"></i> Headless</a>
+              <a href="/tags/raspberry-OS/" rel="tag"><i class="fa fa-tag"></i> raspberry OS</a>
           </div>
 
         
@@ -364,12 +313,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/12/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%97%A0%E6%A1%8C%E9%9D%A2%E7%9A%84raspberry-pi-os/" rel="prev" title="如何安装无桌面的Raspberry Pi OS">
-      <i class="fa fa-chevron-left"></i> 如何安装无桌面的Raspberry Pi OS
+    <a href="/posts/2314/" rel="prev" title="远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题">
+      <i class="fa fa-chevron-left"></i> 远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/11/13/solve-the-wifi-connection-unstable-on-ubuntu/" rel="next" title="Solve The Problem of Unstable WiFi Connection On Ubuntu OS">
-      Solve The Problem of Unstable WiFi Connection On Ubuntu OS <i class="fa fa-chevron-right"></i>
+    <a href="/posts/44995/" rel="next" title="How to modify the volume of EBS on AWS">
+      How to modify the volume of EBS on AWS <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -430,7 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Modify-the-volume-size-on-the-EC2-dashboard"><span class="nav-number">1.</span> <span class="nav-text">Modify the volume size on the EC2 dashboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Login-your-instance-to-modify-partition"><span class="nav-number">2.</span> <span class="nav-text">Login your instance to modify partition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajust-the-filesystem"><span class="nav-number">3.</span> <span class="nav-text">Ajust the filesystem</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text"> 制作系统镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%89%8D%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text"> 提前配置网络环境</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,27 +389,6 @@
       src="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
   <p class="site-author-name" itemprop="name">Carlo Han</p>
   <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">7</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
@@ -504,12 +432,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">7k</span>
+    <span title="Symbols count total">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6 mins.</span>
+    <span title="Reading time total">13 mins.</span>
 </div>
 
         
@@ -588,6 +516,8 @@
 
   
 
+  
+
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
@@ -599,7 +529,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'blog-comments',
       owner       : 'CarloHan',
       admin       : ['CarloHan'],
-      id          : '65e007e87575e80132fa3300209a5cd7',
+      id          : '6d3a3c6d007c53ef17104ccf193b0e62',
         language: '',
       distractionFreeMode: true
     });

@@ -18,6 +18,34 @@
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #ccc;
+    --blockquote-color: #bbb;
+    --link-color: #ccc;
+    --link-hover-color: #eee;
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
+    --table-row-odd-bg-color: #282828;
+    --table-row-hover-bg-color: #363636;
+    --menu-item-bg-color: #555;
+    --btn-default-bg: #222;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #666;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #666;
+  }
+  img {
+    opacity: 0.75;
+  }
+  img:hover {
+    opacity: 0.9;
+  }
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -193,7 +221,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -975,7 +1003,7 @@ pre .javascript .function {
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 60%;
+    width: 65%;
   }
 }
 @media (max-width: 767px) {
@@ -997,7 +1025,7 @@ pre .javascript .function {
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 60%;
+    width: 65%;
   }
 }
 .site-brand-container {
@@ -1022,7 +1050,7 @@ pre .javascript .function {
   border-bottom: none;
   color: var(--brand-color);
   display: inline-block;
-  line-height: 1.5em;
+  line-height: 1.375em;
   padding: 0 40px;
   position: relative;
 }
@@ -1030,8 +1058,8 @@ pre .javascript .function {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: 'Permanent Marker', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 1.5em;
+  font-family: 'Roboto', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1.375em;
   font-weight: normal;
   margin: 0;
 }
@@ -1214,7 +1242,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #2bd60e;
+  background: #06e3c3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1384,34 +1412,6 @@ pre .javascript .function {
 .post-toc .nav .active-current > a:hover {
   color: #fc6423;
 }
-.site-state {
-  display: flex;
-  justify-content: center;
-  line-height: 1.4;
-  margin-top: 10px;
-  overflow: hidden;
-  text-align: center;
-  white-space: nowrap;
-}
-.site-state-item {
-  padding: 0 15px;
-}
-.site-state-item:not(:first-child) {
-  border-left: 1px solid #eee;
-}
-.site-state-item a {
-  border-bottom: none;
-}
-.site-state-item-count {
-  display: block;
-  font-size: 1em;
-  font-weight: 600;
-  text-align: center;
-}
-.site-state-item-name {
-  color: #999;
-  font-size: 0.8125em;
-}
 .footer {
   color: #999;
   font-size: 0.875em;
@@ -1436,7 +1436,7 @@ pre .javascript .function {
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 60%;
+    width: 65%;
   }
 }
 .languages {
@@ -1554,7 +1554,7 @@ pre .javascript .function {
   }
 }
 .post-body {
-  font-family: 'Roboto', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1862,7 +1862,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: 'Roboto', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', 'Roboto', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -2320,7 +2320,7 @@ ul.breadcrumb li + li:last-child {
 }
 @media (min-width: 1600px) {
   .header {
-    width: 60%;
+    width: 65%;
   }
 }
 @media (max-width: 991px) {
@@ -2729,27 +2729,4 @@ ul.breadcrumb li + li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
-}
-body {
-  background-image: url("https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/blog_background_1.jpeg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: 50% 50%;
-}
-.content-wrap {
-  opacity: 0.9;
-}
-.post-block {
-  background: rgba(255,255,255,0.9) none repeat scroll !important;
-}
-.sidebar-inner {
-  background: rgba(255,255,255,0.9) none repeat scroll !important;
-}
-.sidebar {
-  background-color: transparent;
-  opacity: 0.9;
-}
-.header-inner {
-  background: rgba(255,255,255,0.9);
 }

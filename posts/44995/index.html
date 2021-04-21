@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Permanent Marker:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Lato:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -20,21 +20,31 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="I have wasted one day to access the Jupyter remote server from my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.">
+  <meta name="description" content="Thanks to Amazon&#39;s generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题">
-<meta property="og:url" content="http://example.com/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/index.html">
+<meta property="og:title" content="How to modify the volume of EBS on AWS">
+<meta property="og:url" content="http://example.com/posts/44995/index.html">
 <meta property="og:site_name" content="HAN&#39;s BLOG">
-<meta property="og:description" content="I have wasted one day to access the Jupyter remote server from my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.">
+<meta property="og:description" content="Thanks to Amazon&#39;s generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-09T15:31:01.000Z">
-<meta property="article:modified_time" content="2021-03-24T21:22:44.146Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/1548507836-5c2c2c17db432_articlex.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/3128725125-5c2c2c196dada_articlex.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2109384238-5c2c2c178ead5_articlex.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2922913778-5c2c2c15389c6_articlex.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png">
+<meta property="article:published_time" content="2020-10-25T10:38:09.000Z">
+<meta property="article:modified_time" content="2021-04-21T20:39:14.847Z">
 <meta property="article:author" content="Carlo Han">
-<meta property="article:tag" content="AWS">
-<meta property="article:tag" content="Jupyter">
+<meta property="article:tag" content="aws">
+<meta property="article:tag" content="expand">
+<meta property="article:tag" content="volum">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png">
 
-<link rel="canonical" href="http://example.com/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/">
+<link rel="canonical" href="http://example.com/posts/44995/">
 
 
 <script id="page-configurations">
@@ -47,7 +57,7 @@
   };
 </script>
 
-  <title>远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题 | HAN's BLOG</title>
+  <title>How to modify the volume of EBS on AWS | HAN's BLOG</title>
   
 
 
@@ -191,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/44995/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
@@ -204,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题
+          How to modify the volume of EBS on AWS
         </h1>
 
         <div class="post-meta">
@@ -214,14 +224,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-10-09 17:31:01" itemprop="dateCreated datePublished" datetime="2020-10-09T17:31:01+02:00">2020-10-09</time>
+              <time title="Created: 2020-10-25 11:38:09" itemprop="dateCreated datePublished" datetime="2020-10-25T11:38:09+01:00">2020-10-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-24 22:22:44" itemprop="dateModified" datetime="2021-03-24T22:22:44+01:00">2021-03-24</time>
+                <time title="Modified: 2021-04-21 22:39:14" itemprop="dateModified" datetime="2021-04-21T22:39:14+02:00">2021-04-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,7 +255,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>214</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -253,7 +263,7 @@
               </span>
               <span>1 mins.</span>
             </span>
-            <div class="post-description">I have wasted one day to access the Jupyter remote server from my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.</div>
+            <div class="post-description">Thanks to Amazon's generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the 30GB volume more reasonably, sometimes you need to adjust it.</div>
 
         </div>
       </header>
@@ -264,11 +274,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
-<p>最终在jupyter的<a target="_blank" rel="noopener" href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
-
-<p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
+        <style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+<p>When I created my EC2 instance, since the limitation of free version, I allocated only 8GB to the root volume. I soon realized that this volume was almost used up.</p>
+<p>As the free instance, Amazon gave us 30GB size to be used. It’s better estimate the size according to your purpose before allocate.</p>
+<p>Anyway, if you have the same problem, dont worry, let’s see how to expand it within 3 steps.</p>
+<h2 id="modify-the-volume-size-on-the-ec2-dashboard"><a class="markdownIt-Anchor" href="#modify-the-volume-size-on-the-ec2-dashboard"></a> Modify the volume size on the EC2 dashboard</h2>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095840.png" alt="AWS DASHBOARD"/>
+</div>
+<ol>
+<li>
+<p>On the dashboard, select “ELASTIC BLOCK STORE - Volumes”.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025095805.png" alt="AWS EBS"/>
+</div>
+</li>
+<li>
+<p>Right click the volume which you want to modify, select “Modify Volume”.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025100644.png" alt="Modify volume"/>
+</div>
+</li>
+<li>
+<p>Enter the volume size you want to reset, pay attention if you’re using a free instance, the total size don’t over 30GB, otherwise you will receive the bill from Amazon.</p>
+</li>
+</ol>
+<h2 id="login-your-instance-to-modify-partition"><a class="markdownIt-Anchor" href="#login-your-instance-to-modify-partition"></a> Login your instance to modify partition</h2>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/1548507836-5c2c2c17db432_articlex.png" alt="lsblk"/>
+</div>
+<ol>
+<li>
+<p>From ssh login to your instance, enter command “<code>lsblk</code>”, you will see the real size of all volumes and the partitions. You will see that the size of the volume has been modified, but the patition has not used all of the volume yet.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/3128725125-5c2c2c196dada_articlex.png" alt="growpart command"/>
+</div>
+</li>
+<li>
+<p>Enter command “<code>sudo growpart /dev/xvda 1</code>”, to make partition “xvda1” use all of the volume available.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2109384238-5c2c2c178ead5_articlex.png" alt="lsblk"/>
+</div>
+</li>
+<li>
+<p>Now you can see that the partition size is equal to the volume size.</p>
+</li>
+</ol>
+<h2 id="ajust-the-filesystem"><a class="markdownIt-Anchor" href="#ajust-the-filesystem"></a> Ajust the filesystem</h2>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/2922913778-5c2c2c15389c6_articlex.png" alt="filesystem not recognize the new space" />
+</div>
+<ol>
+<li>
+<p>But the filesystem has not yet recognized this new space, therefor we have to tell him through the command “<code>sudo resize2fs /dev/xvda1</code>”. (if your filesystem shows as /dev/root, you should use “<code>sudo resize2fs /dev/root</code>”)</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201025111614.png" alt="expand done" />
+</div>
+</li>
+<li>
+<p>Congratulations, the volume has been expanded.</p>
+</li>
+</ol>
+<p>PS: Since I forgot to screenshot the picture when I was procesing, there is a few pictures from internet. If it violates your rights, please let me know and I will delete them.</p>
 
     </div>
 
@@ -284,7 +354,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://example.com/2020/10/09/%E5%9C%A8aws-ec2%E4%B8%8A%E5%AE%89%E8%A3%85jupyter%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" title="远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题">http://example.com/2020/10/09/在aws-ec2上安装jupyter并实现远程访问/</a>
+    <a href="http://example.com/posts/44995/" title="How to modify the volume of EBS on AWS">http://example.com/posts/44995/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a>，please indicate the source if reprinted.
@@ -295,8 +365,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/AWS/" rel="tag"><i class="fa fa-tag"></i> AWS</a>
-              <a href="/tags/Jupyter/" rel="tag"><i class="fa fa-tag"></i> Jupyter</a>
+              <a href="/tags/aws/" rel="tag"><i class="fa fa-tag"></i> aws</a>
+              <a href="/tags/expand/" rel="tag"><i class="fa fa-tag"></i> expand</a>
+              <a href="/tags/volum/" rel="tag"><i class="fa fa-tag"></i> volum</a>
           </div>
 
         
@@ -305,12 +376,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A7%81%E4%BA%BA%E7%BD%91%E7%AB%99/" rel="prev" title="我的第一个私人博客(My first blog)">
-      <i class="fa fa-chevron-left"></i> 我的第一个私人博客(My first blog)
+    <a href="/posts/7170/" rel="prev" title="如何安装无桌面的Raspberry Pi OS">
+      <i class="fa fa-chevron-left"></i> 如何安装无桌面的Raspberry Pi OS
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/10/12/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%97%A0%E6%A1%8C%E9%9D%A2%E7%9A%84raspberry-pi-os/" rel="next" title="如何安装无桌面的Raspberry Pi OS">
-      如何安装无桌面的Raspberry Pi OS <i class="fa fa-chevron-right"></i>
+    <a href="/posts/14941/" rel="next" title="Solve The Problem of Unstable WiFi Connection On Ubuntu OS">
+      Solve The Problem of Unstable WiFi Connection On Ubuntu OS <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -371,6 +442,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#modify-the-volume-size-on-the-ec2-dashboard"><span class="nav-number">1.</span> <span class="nav-text"> Modify the volume size on the EC2 dashboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#login-your-instance-to-modify-partition"><span class="nav-number">2.</span> <span class="nav-text"> Login your instance to modify partition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajust-the-filesystem"><span class="nav-number">3.</span> <span class="nav-text"> Ajust the filesystem</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -380,27 +452,6 @@
       src="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
   <p class="site-author-name" itemprop="name">Carlo Han</p>
   <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">7</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
@@ -444,12 +495,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">7k</span>
+    <span title="Symbols count total">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6 mins.</span>
+    <span title="Reading time total">13 mins.</span>
 </div>
 
         
@@ -528,6 +579,8 @@
 
   
 
+  
+
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
@@ -539,7 +592,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'blog-comments',
       owner       : 'CarloHan',
       admin       : ['CarloHan'],
-      id          : 'b710429f07bdc0d0fbf6ec20b6e6bdcf',
+      id          : '137b914161dd4c380a5c02f283ee49c0',
         language: '',
       distractionFreeMode: true
     });
