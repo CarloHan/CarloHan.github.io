@@ -8,8 +8,13 @@ id: '7'
 categories:
   - - EV
   - - python
+description: >-
+  Matplotlib is one of the most useful library in Python. For professional
+  fields, it can be used for scientific calculations; In daily use, it can
+  easily help you realize data visualization. It will greatly improve work
+  efficiency as long as you can master some simple grammar about it.
+abbrlink: 8131
 date: 2021-02-05 09:30:17
-description: Matplotlib is one of the most useful library in Python. For professional fields, it can be used for scientific calculations; In daily use, it can easily help you realize data visualization. It will greatly improve work efficiency as long as you can master some simple grammar about it. 
 ---
 
 Recently I'm working on calculating the charging current limitation strategy for our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, it couldn't achieve the effect waht I want. Then I turned my eyes on Matlab, but the logo of looks at me and says, come on bro, don't let me do this, it's overkill. Ok, stop talking nonsense, let's take a look at our protagonist.

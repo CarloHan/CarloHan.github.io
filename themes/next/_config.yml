@@ -31,7 +31,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.swig
   variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  style: source/_data/styles.styl
+  #style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -103,7 +103,7 @@ creative_commons:
 scheme: Gemini
 
 # Dark Mode
-darkmode: false
+darkmode: true
 
 
 # ---------------------------------------------------------------
@@ -430,19 +430,20 @@ font:
   # Font settings for site title (.site-title).
   title:
     external: true
-    family: Permanent Marker
-    size: 1.5
+    family: Merienda
+    size: 1.5em
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: Montserrat
+    family: Roboto
     size:
 
   # Font settings for posts (.post-body).
   posts:
     external: true
-    family: Roboto
+    family: Lato
+    size: 1em
 
   # Font settings for <code> and code blocks.
   codes:
@@ -500,6 +501,7 @@ math:
   # That is it only render those page which has `mathjax: true` in Front-matter.
   # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
   per_page: true
+  engine: katex
 
   # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
   mathjax:
@@ -509,7 +511,7 @@ math:
 
   # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) required for full Katex support.
   katex:
-    enable: false
+    enable: true
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
 

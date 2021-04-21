@@ -6,8 +6,14 @@ tags:
 id: '3'
 categories:
   - - Raspberry
+description: >-
+  In order to running OpenCV more faster on Raspberry Pi, I have to reinstall
+  the Raspberry Pi OS with the Lit version. With this version, the Raspberry Pi
+  will no longer have a GUI(desktop), and you have to talk with him through
+  headless mode, which means SSH. In this case, the initial configuration is
+  very important.
+abbrlink: 7170
 date: 2020-10-12 23:22:07
-description: In order to running OpenCV more faster on Raspberry Pi, I have to reinstall the Raspberry Pi OS with the Lit version. With this version, the Raspberry Pi will no longer have a GUI(desktop), and you have to talk with him through headless mode, which means SSH. In this case, the initial configuration is very important.
 ---
 
 最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。

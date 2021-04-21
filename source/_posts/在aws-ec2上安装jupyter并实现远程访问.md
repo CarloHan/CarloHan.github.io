@@ -6,8 +6,12 @@ tags:
 id: '2'
 categories:
   - - Linux
+description: >-
+  I have wasted one day to access the Jupyter remote server from my AWS, finally
+  it was solved by a simple command. Hope this article could help you to save
+  your time.
+abbrlink: 2314
 date: 2020-10-09 17:31:01
-description: I have wasted one day to access the Jupyter remote server from my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.
 ---
 
 最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。

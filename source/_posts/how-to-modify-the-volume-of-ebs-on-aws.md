@@ -7,8 +7,13 @@ tags:
 id: '4'
 categories:
   - - Linux
+description: >-
+  Thanks to Amazon's generosity that we can use a cloud host for free in one
+  year. Although there are few resources available, it is enough for most
+  amateur users just like me. In order to allocate the 30GB volume more
+  reasonably, sometimes you need to adjust it.
+abbrlink: 44995
 date: 2020-10-25 11:38:09
-description: Thanks to Amazon's generosity that we can use a cloud host for free in one year. Although there are few resources available, it is enough for most amateur users just like me. In order to allocate the 30GB volume more reasonably, sometimes you need to adjust it.
 ---
 
 <style>

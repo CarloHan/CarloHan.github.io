@@ -9,15 +9,15 @@ categories:
   - - life
   - - HTML+CSS
   - - GitHub
-description:
+description: >-
   I spent a week to migrated my blog from AWS to GIthub pages. Thanks to the
   powerful blog framework HEXO, the process of migrated and deployed is very
   simple. Then I can focus on the theme's custom and optimize. In this article,
   I will not describe the specific of each step, but the key points. Hope it
   could help you.
-date: 2021-04-09 14:18:51
 id: ‘8’
-
+abbrlink: 13264
+date: 2021-04-09 14:18:51
 ---
 
 <style>

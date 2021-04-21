@@ -7,8 +7,12 @@ tags:
 id: '6'
 categories:
   - - HW
+description: >-
+  Analyzing and simulating the working principle of an old electronic flasher.
+  This flasher control unit is used to control the position, direction and
+  emergnecy lights flashing on vehicle.
+abbrlink: 12487
 date: 2021-01-12 17:46:50
-description: Analyzing and simulating the working principle of an old electronic flasher. This flasher control unit is used to control the position, direction and emergnecy lights flashing on vehicle. 
 ---
 
 <style>
