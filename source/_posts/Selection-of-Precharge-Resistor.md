@@ -151,8 +151,8 @@ According to this curve, the temperature rise up over $ 250^\circ C $ if a pre-c
 
 $$ R = 167 \Omega \\ P = 300W$$
 
-Then we need to consider the practical applications, such as the assemble space limitation, cost limitation and so on. Also there is a case need to be paid attention which is "high frequency operation". Imaging that someone turn the vehicle on and off repeatedly in a short time. In this case, the pre-charge resistor was in a fully loaded state for a long time, and the temperature will increased so high that the resistor could be damaged. Therefore the power of the resistor must be reserved a proper margin. 
+Then we need to consider the practical applications, such as the assemble space limitation, cost limitation and so on. Also there is a case need to be paid attention which is "high frequency operation". Imaging that someone turn the vehicle on and off repeatedly in a short time. In this case, the pre-charge resistor was in a fully loaded state for a long time, and the temperature will increased so high that the resistor could be damaged. Therefore the power of the resistor must be reserved a proper margin.
 
+## Conclusion
 
-
-
+This article discussed the pre-charge resistor selection from the perspective of theoretical calculation. In fact, the theoretical calculation can be not only as a basis of model selection, but also used for the failure analysis. In the practical implementation, there are a lot of factors will affect the selection, and all of the experience gained in practice is very valuable.

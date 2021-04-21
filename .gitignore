@@ -8,6 +8,7 @@ node_modules/
 db.json
 public/
 .deploy_git/
+mindmap/
 
 # Ignore optional external libraries
 source/lib/*
