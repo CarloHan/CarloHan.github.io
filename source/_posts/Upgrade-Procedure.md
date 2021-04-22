@@ -4,14 +4,11 @@ tags:
   - Upgrade
 categories:
   - - Mecaprom
-id: '10'
+top: 2
 abbrlink: 14089
 date: 2021-04-22 12:06:18
-description: The very detail procedure for upgrade the software on vehicle.
----
-
-# Upgrade Procedure <!-- omit in toc -->
-
+password: mecaprom
+description: A very detail procedure for upgrade the software on vehicle.
 ---
 
 - [LMU](#lmu)
@@ -45,8 +42,6 @@ description: The very detail procedure for upgrade the software on vehicle.
     - [Glelec Flash DownLoad.exe](#glelec-flash-downloadexe)
     - [INONE BMS Calibrate](#inone-bms-calibrate)
     - [HEX 2 DEC Convert](#hex-2-dec-convert)
-
----
 
 <style>
 .box {
@@ -155,8 +150,6 @@ img{
 4. Read the message [0x210](#hex-2-dec-convert).
 5. Convert the 6th Byte from hex to decimal via the [Windows Calculator](#hex-2-dec-convert), then you will get the version number.
 
----
-
 ## Annotate
 
 ### HW
@@ -205,7 +198,7 @@ This software was developed using Java language, it means that to running it the
 4. Select the official software: <br/>
    ![Upgrade LMU 05](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210413135839.png)
 5. Turn on the vehicle, and the updating will start automatic: <br/>
-   ![Upgrade LMU 06](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210413141038.png){:height="50%" width="78%"} <br/>
+   ![Upgrade LMU 06](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210413141038.png) <br/>
    ![Upgrade LMU 07](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210413141555.png)
 6. Close the program.
 
@@ -242,8 +235,8 @@ This software was provided from the supplier of BMS, it was used for updating th
    ![Upgrade BMS 05](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210413145931.png)
 5. Close the program.
 
-<div class="admonition note">
-  <p class="admonition-title">BMS Version</p>
+<div class="admonition note ">
+  <p class="admonition-title">BMS Software Version</p>
   <p>There are 4 different software version for BMS, chose the correct version according to the hardware version.</p>
 
 |        | With Emerg            | No Emerg              |
@@ -256,12 +249,10 @@ This software was provided from the supplier of BMS, it was used for updating th
 
 To check the software version of LMU, at first you must read a message via BusMaster: <br/>
 
-<div class="admonition note">
-  <p class="admonition-title">LMU Version Message</p>
+!!! note "LMU Version Message"
 
-  ![LMU VERSION BUSMASTER](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210415151714.png)
-  <p>ID: 0x210, UO1_Io_Cmd, Byte 6</p>
-</div>
+    ![LMU VERSION BUSMASTER](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210415151714.png)
+    ID: 0x210, UO1_Io_Cmd, Byte 6
 
 The number you got is in hex, then you have to convert it to decimal via Microsoft Calculator: <br/>
 

@@ -4,7 +4,7 @@ tags:
   - Pre-charge Resistor
 categories:
   - - EV
-id: '9'
+top: 29
 mathjax: true
 description: >-
   The model selection of the pre-charge resistor is very important for the
