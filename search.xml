@@ -357,22 +357,6 @@ V_{Bat} = 500V
       </tags>
   </entry>
   <entry>
-    <title>远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题</title>
-    <url>/posts/2314/</url>
-    <content><![CDATA[<p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
-<p>最终在jupyter的<a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
-<p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>AWS</tag>
-        <tag>Jupyter</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何安装无桌面的Raspberry Pi OS</title>
     <url>/posts/7170/</url>
     <content><![CDATA[<p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
@@ -393,6 +377,22 @@ V_{Bat} = 500V
       <tags>
         <tag>Headless</tag>
         <tag>raspberry OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题</title>
+    <url>/posts/2314/</url>
+    <content><![CDATA[<p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
+<p>最终在jupyter的<a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
+<p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>Jupyter</tag>
       </tags>
   </entry>
   <entry>
