@@ -4,11 +4,12 @@ tags:
   - Upgrade
 categories:
   - - Mecaprom
+  - - EV
 top: 2
 abbrlink: 14089
 date: 2021-04-22 12:06:18
 password: mecaprom
-description: A very detail procedure for upgrade the software on vehicle.
+description: A very detailed procedure for upgrade the software on vehicle.
 ---
 
 - [LMU](#lmu)
@@ -41,6 +42,7 @@ description: A very detail procedure for upgrade the software on vehicle.
     - [McpProgramInterface.jar](#mcpprograminterfacejar)
     - [Glelec Flash DownLoad.exe](#glelec-flash-downloadexe)
     - [INONE BMS Calibrate](#inone-bms-calibrate)
+    - [BusMaster](#busmaster)
     - [HEX 2 DEC Convert](#hex-2-dec-convert)
 
 <style>
@@ -140,13 +142,13 @@ img{
 
 ### Software
 
-- [BusMaster](#hex-2-dec-convert)
+- [BusMaster](#busmaster)
 
 ### Steps
 
 1. Turn ON the key.
 2. Connect PC and vehicle through OBD cable and Kvaser Leaf Light V2, use the 'traction CAN'.
-3. Run the software [BusMaster](#hex-2-dec-convert).
+3. Run the software [BusMaster](#busmaster).
 4. Read the message [0x210](#hex-2-dec-convert).
 5. Convert the 6th Byte from hex to decimal via the [Windows Calculator](#hex-2-dec-convert), then you will get the version number.
 
@@ -235,9 +237,8 @@ This software was provided from the supplier of BMS, it was used for updating th
    ![Upgrade BMS 05](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210413145931.png)
 5. Close the program.
 
-<div class="admonition note ">
+<div class="admonition tldr">
   <p class="admonition-title">BMS Software Version</p>
-  <p>There are 4 different software version for BMS, chose the correct version according to the hardware version.</p>
 
 |        | With Emerg            | No Emerg              |
 | ------ | --------------------- | --------------------- |
@@ -245,14 +246,37 @@ This software was provided from the supplier of BMS, it was used for updating th
 | 42S28P | JDI2008120504_V2.0.14 | JDI2008120504_V1.0.14 |
 </div>
 
+#### BusMaster
+
+<img class="small" src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster.PNG" alt="BusMaster" />
+
+BusMaster is a simple but useful application for CAN bus diagnostic and the features it has are enough for 80% daily requirements.
+
+1. Connect Kvaser with PC.
+2. Run BusMaster: <br/>
+   ![BusMaster 01](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_01_new.png)<br/>
+   ![BusMaster 02](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_02.png)<br/>
+   ![BusMaster 03](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_03.png)
+3. Add database: <br/>
+   ![BusMaster 04](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_04.png)<br/>
+   ![BusMaster 05](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_05.png)<br/>
+   ![BusMaster 06](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_06.png)
+4. After starting, there are all of the CAN messages around CAN bus, don't worry because only tew of them have to be focused: <br/>
+   ![BusMaster 07](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_07.png)<br/>
+   ![BusMaster 08](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_08.png)<br/>
+   ![BusMaster 09](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/BusMaster_09.png)
+
 #### HEX 2 DEC Convert
 
 To check the software version of LMU, at first you must read a message via BusMaster: <br/>
 
-!!! note "LMU Version Message"
+<div class="admonition tldr">
+  <p class="admonition-title">ID 0x600 LMU_FAULT_STS</p>
 
-    ![LMU VERSION BUSMASTER](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210415151714.png)
-    ID: 0x210, UO1_Io_Cmd, Byte 6
+  ![LMU VERSION BUSMASTER](https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210415151714.png) <br/>
+
+  <p> ID: 0x210, UO1_Io_Cmd, Byte 6 </p>
+</div>
 
 The number you got is in hex, then you have to convert it to decimal via Microsoft Calculator: <br/>
 
