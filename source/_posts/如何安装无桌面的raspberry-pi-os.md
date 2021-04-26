@@ -1,14 +1,14 @@
 ---
-title: 如何安装无桌面的Raspberry Pi OS
+title: How to Install a Headless Raspberry Pi OS
 tags:
   - Headless
   - raspberry OS
-top: 23
+top: 22
 categories:
   - - Raspberry
 description: >-
   In order to running OpenCV more faster on Raspberry Pi, I have to reinstall
-  the Raspberry Pi OS with the Lit version. With this version, the Raspberry Pi
+  the Raspberry Pi OS with the headless version. With this version, the Raspberry Pi
   will no longer have a GUI(desktop), and you have to talk with him through
   headless mode, which means SSH. In this case, the initial configuration is
   very important.
