@@ -31,6 +31,5 @@ Searching on the internet, I got that this charger's model is **efacec EV-HC3 G3
   Datasheet of the Efacec EV-HC3 Charger
 </div>
 
-Seeing as either the charger or the BMS was designed according to IEC61851, why doesn't it work? What's more bizarre is the charger we provide along with the vehicle is working well with either our vehicle or others, the charger they have can work with other vehicle as well. To find the key point out, I decided to record the charging process via both of the software and hardware.
-
+Seeing as either the charger or the BMS was designed according to IEC61851, why doesn't it work? What's more bizarre is the charger we provide along with the vehicle is working well with either our vehicle or others, the charger they have can work with other vehicle as well. To find the key point out, I decide to record the charging process via both of the software and hardware. From the log it shows that there was no PWM sent from the efacec's charger after plugged the connector, but for the charger we provide there was PWM. Since BMS cannot detect PWM, the charging process will not go to the next step, thus the charger give an error.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lEgg_gGY_Pw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
