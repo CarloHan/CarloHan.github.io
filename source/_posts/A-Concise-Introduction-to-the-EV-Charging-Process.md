@@ -35,7 +35,18 @@ Seeing as either the charger or the BMS was designed according to IEC 61851, why
 
 ## IEC 61851
 
-To analyze the process, let's study the standard at first. You may heard variety difference standard about EV charging, such as SAE J1772, IEC 62196, IEC 61851 and so on. What we need to focus on is the signaling protocol. IEC 61851 
+To analyze the process, let's study the standard at first. You may heard variety difference standard about EV charging, such as SAE J1772, IEC 62196, IEC 61851 and so on. What we need to focus on is the signaling protocol, and IEC 61851 introduces and describes the specific function.
+
+### Signaling circuit
+
+Below is the electrical schematic diagram of the signaling circuit:
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430150310.gif" alt="Signaling circuit" />
+  Electrical schematic diagram of the signaling circuit
+</div>
+
+On the diagram, there are 5 pins through the connection. Pin 1 is Live line, Pin 2 is Neutral line, Pin 3 is PE(Protective Earth), Pin 4 is CP(Control Pilot) and Pin 5 is PP(Proximity Pilot). Before plugging the connector, the EVSE controller puts constant $+12V$ on CP. Once the connector was plugged, the current loop CP-PE is connected permanently on the vehicle side via a $2.74k\Omega$ resistor($R3$), and it making a voltage drop down from $+12V$ to $+9V$. The EVSE controller detected the voltage difference, switch($K2$) the constant supply to a $1kHz$ square wave($PWM$, amplitude $\pm12V$). The charging will be activated by the vehicle by adding parallel $1.3k\Omega$ resistor($R2$) resulting in a voltage drop to $+6V$, or by adding a parallel $270\Omega$ resistor for a required ventilation resulting in a voltage drop to $+3V$. Once the EVSE detect the activated voltage, it will close the relay on the Neutral line and Live line, and the charging start.  
 
 From the log it shows that there was no PWM sent from the efacec's charger after plugged the connector, but for the charger we provide there was PWM. Since BMS cannot detect PWM, the charging process will not go ahead, then the charger give an error.
 
