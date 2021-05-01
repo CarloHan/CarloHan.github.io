@@ -133,7 +133,7 @@ What we have to caution is the behavior of the pre-charge resistor's power:
   Power behavior
 </div>
 
-As you can see, the peak power of the pre-charge resistor is$ 1497W $while the moment the contactor closes, which verified the correction of our calculation.
+As you can see, the peak power of the pre-charge resistor is $1497W$ while the moment the contactor closes, which verified the correction of our calculation.
 
 ## Realistic basis
 

@@ -17,7 +17,7 @@ description: This article will try to introduce the EV charging process in a per
   .box img {border-radius: 10px;}
 </style>
 
-Recently I got a feedback from a customer said the EVSE they owner cannot charge our vehicle. The behavior is when the connector plugged, the EVSE goes to the error status at once. Then he send a the model of the charger is as follow:
+Recently I got a feedback from a customer said the EVSE they owned(**charger 1**) cannot charge our vehicle. The behavior is when the connector plugged, the EVSE goes to the error status at once. Then he send the model of the charger is as follow:
 
 <div class="box">
   <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210427142820.jpg" alt="Efacec EV-HC3" />
@@ -31,11 +31,11 @@ Searching on the internet, I got that this charger's model is **efacec EV-HC3 G3
   Datasheet of the Efacec EV-HC3 Charger
 </div>
 
-Seeing as either the charger or the BMS was designed according to IEC 61851, what's more bizarre is the charger we provide along with the vehicle is working well with either our vehicle or others, the charger they have can work with other vehicle as well. Why doesn't it work?
+Seeing as either the charger or the BMS was designed according the same standard, what's more bizarre is the charger we provide along with the vehicle(**charger 2w**) is working well with either our vehicle or others, the charger they have can work with other vehicle as well, but why does it can't work with our vehicle?
 
 ## IEC 61851
 
-To analyze the process, let's study the standard at first. You may heard variety difference standard about EV charging, such as SAE J1772, IEC 62196, IEC 61851 and so on. What we need to focus on is the signaling protocol, IEC 61851 introduces and describes the specific function.
+To analyze this issue, let's study the standard at first. You may heard variety difference standard about EV charging, such as SAE J1772, IEC 62196, IEC 61851 and so on. What we need to focus on is the signaling protocol, IEC 61851 introduces and describes the specific function.
 
 ### Signaling circuit
 
@@ -46,14 +46,16 @@ Below is the electrical schematic diagram of the signaling circuit:
   Electrical schematic diagram of the signaling circuit
 </div>
 
-This diagram shows a SAE J1772 connector, there are 5 pins through the connection. Pin 1 is Live wire, Pin 2 is Neutral wire, Pin 3 is PE(Protective Earth), Pin 4 is CP(Control Pilot) and Pin 5 is PP(Proximity Pilot). Before plugging the connector, the EVSE controller puts constant $+12V$ on CP. Once the connector was plugged, the current loop CP-PE is connected permanently on the vehicle side via a $2.74k\Omega$ resistor($R3$), and it making a voltage drop down from $+12V$ to $+9V$. The EVSE controller detected the voltage difference, switch($K2$) the constant supply to a $1kHz$ square wave($PWM$, amplitude $\pm12V$). The charging will be activated by the vehicle by adding parallel $1.3k\Omega$ resistor($R2$) resulting in a voltage drop to $+6V$, or by adding a parallel $270\Omega$ resistor for a required ventilation resulting in a voltage drop to $+3V$. Once the EVSE detected the activated voltage, the relay on the Neutral wire and Live wire is closed, and the charging start. The following table shows the threshold for different states.
+This diagram shows a SAE J1772 connector, there are 5 pins through the connection. Pin 1 is Live wire, Pin 2 is Neutral wire, Pin 3 is PE(Protective Earth), Pin 4 is CP(Control Pilot) and Pin 5 is PP(Proximity Pilot). 
+
+Before plugging the connector, the EVSE controller puts constant $+12V$ on CP. Once the connector was plugged, the current loop CP-PE is connected permanently on the vehicle side via a $2.74k\Omega$ resistor($R3$), and it making a voltage drop down from $+12V$ to $+9V$. The EVSE controller detected the voltage difference, switch($K2$) the constant supply to a $1kHz$ square wave($PWM$, amplitude $\pm12V$). The charging will be activated by the vehicle by adding parallel $1.3k\Omega$ resistor($R2$) resulting in a voltage drop to $+6V$, or by adding a parallel $270\Omega$ resistor for a required ventilation resulting in a voltage drop to $+3V$. Once the EVSE detected the activated voltage, the relay on the Neutral wire and Live wire is closed, and the charging start. The following table shows the threshold for different states.
 
 <div class="box">
   <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430225739.jpg" alt="Pilot signal states" />
   Pilot signal states
 </div>
 
-In fact, all of the voltage out of the range will be considered an error.
+In fact, for any voltage out of the range will be considered as an error.
 
 ### Current limit
 
@@ -64,7 +66,24 @@ Obviously for a $PWM$, it is worth noting only the amplitude, but also the duty 
   Ampere capacity with PWM duty cycle
 </div>
 
-From the log it shows that there was no PWM sent from the efacec's charger after plugged the connector, but for the charger we provide there was PWM. Since BMS cannot detect PWM, the charging process will not go ahead, then the charger give an error.
+## Video recording
 
-To 
+Now let's look back at the case we mentioned in the beginning. To find the key of this issue, I recorded the CP states on vehicle side via PicoScope when the two chargers were plugged.
+
+### Charger 1 (the charger owned by client)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s0OlHtV7aTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+From this video we got that there was a voltage drop down when the connector plugged(initially $+12V$), but why the process get stuck?
+
+The standard specifies that the voltage judgement range of State B(vehicle detected) is $9\pm1V$. It the video, the voltage dropped to around $7.9V$, it was out of the range. In this case, the EVSE cannot ensure the vehicle has been connected, thus it will not activate the wave generator, as well as the vehicle don't adding the parallel resistor since no PWM was detected.
+
+### Charger 2 (the charger we provide)
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lEgg_gGY_Pw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+In this video, the behavior of the signal is definitely correct at first glance, and of course the charger can charge the vehicle. However, if you watch the video carefully, you will find that there is a big problem: the amplitude. At state B, the voltage drop to $7.9V$, out of range, at state C, the voltage drop to $5.1V$, it's just at critical points, but this charger has made a correct judgement on both states. It means this charger give a wide threshold for each state. And this is the main reason why we did not meet this problem during the debugging phase.
+
+## Analysis
+
+The CP-PE is a very simple loop consists only a supply on EVSE side, resistors and a sampling circuit on BMS to detect the signal from EVSE. 
