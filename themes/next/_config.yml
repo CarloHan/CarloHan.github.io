@@ -187,7 +187,7 @@ social:
   #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
-  Skype: skype:Ying - Mecaprom call|chat || fab fa-skype
+  #Skype: skype:Ying - Mecaprom call|chat || fab fa-skype
 
 social_icons:
   enable: true
