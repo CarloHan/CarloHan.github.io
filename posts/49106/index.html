@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Merienda:300,300italic,400,400italic,700,700italic|Lato:300,300italic,400,400italic,700,700italic|Inconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="This article will try to introduce the EV charging process in a perspicuity manner via a real case.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Revisited the EV Charging Process">
+<meta property="og:url" content="http://example.com/posts/49106/index.html">
+<meta property="og:site_name" content="HAN&#39;s BLOG">
+<meta property="og:description" content="This article will try to introduce the EV charging process in a perspicuity manner via a real case.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210427142820.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210427162102.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430150310.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430225739.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430234838.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210502162411.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210502175751.jpg">
+<meta property="article:published_time" content="2021-04-26T08:47:08.000Z">
+<meta property="article:modified_time" content="2021-05-02T20:56:01.361Z">
+<meta property="article:author" content="Carlo Han">
+<meta property="article:tag" content="EV">
+<meta property="article:tag" content="Charging">
+<meta property="article:tag" content="IEC 61851">
+<meta property="article:tag" content="CP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210427142820.jpg">
+
+<link rel="canonical" href="http://example.com/posts/49106/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Revisited the EV Charging Process | HAN's BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">HAN's BLOG</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep studying, Keep growing!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/49106/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
+      <meta itemprop="name" content="Carlo Han">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HAN's BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Revisited the EV Charging Process
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-26 10:47:08" itemprop="dateCreated datePublished" datetime="2021-04-26T10:47:08+02:00">2021-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-02 22:56:01" itemprop="dateModified" datetime="2021-05-02T22:56:01+02:00">2021-05-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/EV/" itemprop="url" rel="index"><span itemprop="name">EV</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 mins.</span>
+            </span>
+            <div class="post-description">This article will try to introduce the EV charging process in a perspicuity manner via a real case.</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+<p>Recently I got a feedback from a customer said the EVSE they owned(<strong>charger 1</strong>) cannot charge our vehicle. The performance is when the connector plugged, the EVSE goes to the error status at once. Then he send the model of the charger to me:</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210427142820.jpg" alt="Efacec EV-HC3" />
+  Efacec EV-HC3 EVSE
+</div>
+<p>Searching on the internet, I got that this charger’s model is <strong>efacec EV-HC3 G3</strong>, the main features as bellow:</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210427162102.jpg" alt="Efacec Charger datasheet" />
+  Datasheet of the Efacec EV-HC3 Charger
+</div>
+<p>Seeing as either the charger or the BMS was designed according the same standard, what’s more bizarre is the charger we provide along with the vehicle(<strong>charger 2</strong>) is working well with either our vehicle or others, the charger they have can work with other vehicle as well, but why does it can’t work with our vehicle?</p>
+<h2 id="iec-61851"><a class="markdownIt-Anchor" href="#iec-61851"></a> IEC 61851</h2>
+<p>To analyze this issue, let’s study the standard at first. You may heard variety difference standard about EV charging, such as SAE J1772, IEC 62196, IEC 61851 and so on. What we need to focus on is the signaling protocol, IEC 61851 introduces and describes the specific function.</p>
+<h3 id="signaling-circuit"><a class="markdownIt-Anchor" href="#signaling-circuit"></a> Signaling circuit</h3>
+<p>Below is the electrical schematic diagram of the signaling circuit:</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430150310.gif" alt="Signaling circuit" />
+  Electrical schematic diagram of the signaling circuit
+</div>
+<p>This diagram shows a SAE J1772 connector, there are 5 pins through the connection. Pin 1 is Live wire, Pin 2 is Neutral wire, Pin 3 is PE(Protective Earth), Pin 4 is CP(Control Pilot) and Pin 5 is PP(Proximity Pilot).</p>
+<p>Before plugging the connector, the EVSE controller puts constant <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>12</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">+12V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> on CP. Once the connector was plugged, the current loop CP-PE is connected permanently on the vehicle side via a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2.74</mn><mi>k</mi><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">2.74k\Omega</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">.</span><span class="mord">7</span><span class="mord">4</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">Ω</span></span></span></span> resistor(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">R3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord">3</span></span></span></span>), and it making a voltage drop down from <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>12</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">+12V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>9</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">+9V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">9</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>. The EVSE controller detected the voltage difference, switch(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">K2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord">2</span></span></span></span>) the constant supply to a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi>k</mi><mi>H</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">1kHz</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span> square wave(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>W</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">PWM</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>, amplitude <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>±</mo><mn>12</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">\pm12V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">±</span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>). The charging will be activated by the vehicle by adding parallel <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1.3</mn><mi>k</mi><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">1.3k\Omega</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">3</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">Ω</span></span></span></span> resistor(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">R2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord">2</span></span></span></span>) resulting in a voltage drop to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>6</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">+6V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">6</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>, or by adding a parallel <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>270</mn><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">270\Omega</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">7</span><span class="mord">0</span><span class="mord">Ω</span></span></span></span> resistor for a required ventilation resulting in a voltage drop to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>3</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">+3V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">3</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>. Once the EVSE detected the activated voltage, the relay on the Neutral wire and Live wire is closed, and the charging start. The following table shows the threshold for different states.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430225739.jpg" alt="Pilot signal states" />
+  Pilot signal states
+</div>
+<p>In fact, for any voltage out of the range will be considered as an error.</p>
+<h3 id="current-limit"><a class="markdownIt-Anchor" href="#current-limit"></a> Current limit</h3>
+<p>Obviously for a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>W</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">PWM</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>, it is worth noting only the amplitude, but also the duty cycle. The charging station can use the duty cycle to describe the maximum current that is available:</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210430234838.jpg" alt="Ampere capacity with PWM duty cycle" />
+  Ampere capacity with PWM duty cycle
+</div>
+<h2 id="testing"><a class="markdownIt-Anchor" href="#testing"></a> Testing</h2>
+<p>Now let’s look back at the case we mentioned in the beginning. To find the key of this issue, I recorded the CP states on vehicle side via PicoScope when the two chargers were plugged.</p>
+<h3 id="charger-1-the-charger-owned-by-client"><a class="markdownIt-Anchor" href="#charger-1-the-charger-owned-by-client"></a> Charger 1 (the charger owned by client)</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s0OlHtV7aTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>From this video we got that there was a voltage drop down when the connector plugged(initially <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>12</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">+12V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>), but why the process get stuck?</p>
+<p>The standard specifies that the voltage judgement range of State B(vehicle detected) is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>±</mo><mn>1</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">9\pm1V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">±</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>. It the video, the voltage dropped to around <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7.9</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">7.9V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">.</span><span class="mord">9</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>, it was out of the range. In this case, the EVSE cannot ensure the vehicle has been connected, thus it will not activate the wave generator, as well as the vehicle don’t adding the parallel resistor since no PWM was detected.</p>
+<h3 id="charger-2-the-charger-we-provide"><a class="markdownIt-Anchor" href="#charger-2-the-charger-we-provide"></a> Charger 2 (the charger we provide)</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lEgg_gGY_Pw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>In this video, the behavior of the signal is definitely correct at first glance, and of course the charger can charge the vehicle. However, if you watch the video carefully, you will find that there is a big problem: the amplitude. At state B, the voltage drop to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7.9</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">7.9V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">.</span><span class="mord">9</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>, out of range, at state C, the voltage drop to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5.1</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">5.1V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>, it’s just at critical points, but this charger has made a correct judgement on both states. It means this charger give a wide threshold for each state. And this is the main reason why we did not meet this problem during the debugging phase.</p>
+<h2 id="analysis"><a class="markdownIt-Anchor" href="#analysis"></a> Analysis</h2>
+<p>The CP-PE is a very simple loop consists only a supply on EVSE side, resistors and a sampling circuit on BMS to detect the signal from EVSE. Thus the problem should be the consumption of the sampling circuit. The testing results is as follow:</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210502162411.jpg" alt="Charging sampling circuit" />
+  CP current loop analysis
+</div>
+<p>Ideally, the current of sampling circuit should be zero, hence:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mrow><mi>T</mi><mn>1</mn></mrow></msub><mo>=</mo><mn>12</mn><mi>V</mi><mo>−</mo><mo stretchy="false">(</mo><mn>1</mn><mi>k</mi><mi mathvariant="normal">Ω</mi><mo>∗</mo><mn>2.71</mn><mi>m</mi><mi>A</mi><mo stretchy="false">)</mo><mo>=</mo><mn>9.29</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">V_{T1} = 12V - (1k\Omega * 2.71mA) = 9.29V 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">Ω</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">.</span><span class="mord">7</span><span class="mord">1</span><span class="mord mathdefault">m</span><span class="mord mathdefault">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord">.</span><span class="mord">2</span><span class="mord">9</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span></span></p>
+<p>However, in the actual circuit, the current flowing through the sampling circuit is as high as <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1.28</mn><mi>m</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">1.28mA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord">8</span><span class="mord mathdefault">m</span><span class="mord mathdefault">A</span></span></span></span>, in this case:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mrow><mi>T</mi><mn>1</mn></mrow></msub><mo>=</mo><mn>12</mn><mi>V</mi><mo>−</mo><mo stretchy="false">(</mo><mn>1</mn><mi>k</mi><mi mathvariant="normal">Ω</mi><mo>∗</mo><mo stretchy="false">(</mo><mn>2.71</mn><mo>+</mo><mn>1.28</mn><mo stretchy="false">)</mo><mi>m</mi><mi>A</mi><mo stretchy="false">)</mo><mo>=</mo><mn>8</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">V_{T1} = 12V - (1k\Omega * (2.71 + 1.28)mA) = 8V 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord">Ω</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord">.</span><span class="mord">7</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord">8</span><span class="mclose">)</span><span class="mord mathdefault">m</span><span class="mord mathdefault">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">8</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span></span></p>
+<p>Obviously, excessive consumption of the sampling circuit leads to excessive voltage drop of the resistor <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">R1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord">1</span></span></span></span>.</p>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>In order to reduce the consumption of the sampling circuit, a simple solution is  replaced the BJT with 2N7002k, a N-channel enhancement type MOSFET, to increase the input impedance.</p>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210502175751.jpg" alt="Charging sampling circuit" />
+  Sampling BJT: Q203, Q205
+</div>
+<p>By dealing with this issue, I revisited the EV charging standard and have a clearer understanding. Also for the hardware design, it must be verified by the worst condition and must meet the requirements of standard. If you have any doubt with EV charging, please leave it in the comment then we will discuss together.</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Carlo Han
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/posts/49106/" title="Revisited the EV Charging Process">http://example.com/posts/49106/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a>，please indicate the source if reprinted.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EV/" rel="tag"><i class="fa fa-tag"></i> EV</a>
+              <a href="/tags/Charging/" rel="tag"><i class="fa fa-tag"></i> Charging</a>
+              <a href="/tags/IEC-61851/" rel="tag"><i class="fa fa-tag"></i> IEC 61851</a>
+              <a href="/tags/CP/" rel="tag"><i class="fa fa-tag"></i> CP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/41237/" rel="prev" title="Troubleshoot Procedure">
+      <i class="fa fa-chevron-left"></i> Troubleshoot Procedure
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iec-61851"><span class="nav-number">1.</span> <span class="nav-text"> IEC 61851</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#signaling-circuit"><span class="nav-number">1.1.</span> <span class="nav-text"> Signaling circuit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#current-limit"><span class="nav-number">1.2.</span> <span class="nav-text"> Current limit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#testing"><span class="nav-number">2.</span> <span class="nav-text"> Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#charger-1-the-charger-owned-by-client"><span class="nav-number">2.1.</span> <span class="nav-text"> Charger 1 (the charger owned by client)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#charger-2-the-charger-we-provide"><span class="nav-number">2.2.</span> <span class="nav-text"> Charger 2 (the charger we provide)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analysis"><span class="nav-number">3.</span> <span class="nav-text"> Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">4.</span> <span class="nav-text"> Solution</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Carlo Han"
+      src="https://db3pap004files.storage.live.com/y4mvuaRYzdUgNeLovho898y0ygMKPs0WZxEHk1oFhnM5FvMSu94HMG7Nuv5wbpEN5c-jm6Fg6TDGu-VJcPsjpusUR-hXwQBKmiUOQvpljmRVGmrGw1P7d3l3zSUbr39sH79WNfCnWJPxR1ed7rQw_74ZSG-Pzs1SxW16VJFy8zPYXdZGz_i3gR_UNZt-9nL_v4N?width=1792&height=1929&cropmode=none">
+  <p class="site-author-name" itemprop="name">Carlo Han</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CarloHan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CarloHan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/han-ying" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;han-ying" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carlo Han</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">32k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">29 mins.</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '35e74b12f2a8b1d3c54b',
+      clientSecret: '53256928d665357ce7de250ec9a743c74ff087a5',
+      repo        : 'blog-comments',
+      owner       : 'CarloHan',
+      admin       : ['CarloHan'],
+      id          : '734743fd47f793b20317d41485192a38',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

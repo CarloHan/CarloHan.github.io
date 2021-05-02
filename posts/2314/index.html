@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="I have wasted one day to access the Jupyter remote server from my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.">
+  <meta name="description" content="I have wasted a day to access the Jupyter remote server on my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题">
+<meta property="og:title" content="A Command to Solve the Issue of Remote Access the Jupyter Servers Running on AWS">
 <meta property="og:url" content="http://example.com/posts/2314/index.html">
 <meta property="og:site_name" content="HAN&#39;s BLOG">
-<meta property="og:description" content="I have wasted one day to access the Jupyter remote server from my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.">
+<meta property="og:description" content="I have wasted a day to access the Jupyter remote server on my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-09T15:31:01.000Z">
-<meta property="article:modified_time" content="2021-04-22T22:48:24.703Z">
+<meta property="article:modified_time" content="2021-04-26T20:24:48.562Z">
 <meta property="article:author" content="Carlo Han">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="Jupyter">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题 | HAN's BLOG</title>
+  <title>A Command to Solve the Issue of Remote Access the Jupyter Servers Running on AWS | HAN's BLOG</title>
   
 
 
@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题
+          A Command to Solve the Issue of Remote Access the Jupyter Servers Running on AWS
         </h1>
 
         <div class="post-meta">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-04-23 00:48:24" itemprop="dateModified" datetime="2021-04-23T00:48:24+02:00">2021-04-23</time>
+                <time title="Modified: 2021-04-26 22:24:48" itemprop="dateModified" datetime="2021-04-26T22:24:48+02:00">2021-04-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,7 +245,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>214</span>
+              <span>438</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -253,7 +253,7 @@
               </span>
               <span>1 mins.</span>
             </span>
-            <div class="post-description">I have wasted one day to access the Jupyter remote server from my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.</div>
+            <div class="post-description">I have wasted a day to access the Jupyter remote server on my AWS, finally it was solved by a simple command. Hope this article could help you to save your time.</div>
 
         </div>
       </header>
@@ -264,10 +264,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近准备在AWS上安装Jupyter服务器实现远程访问，本以为很简单的事情竟遇到了许多坑，花了一天的时间也没有解决掉。。。</p>
-<p>最终在jupyter的<a target="_blank" rel="noopener" href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">论坛</a>上找到了一个解决办法：</p>
+        <p>Recently I try to install the Jupyter server on the AWS to achieve a remote access. I thought it was a very little case but encountered a lot of problems and spent almost a day to solve them.</p>
+<p>Finally, in the <a target="_blank" rel="noopener" href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">forum of Jupyter</a> I found a very simple but effective solution：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
-<p>使用ssh -NfL端口转发，将jupyter在远程服务器的端口转发到本地端口。</p>
+<p>It use command<code>-NfL</code>to forward the port of the remote server to the local port.</p>
+<p>Try to solve and share the problems you met during the deployed in the comment.</p>
 
     </div>
 
@@ -283,7 +284,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://example.com/posts/2314/" title="远程访问运行在AWS EC2上的Jupyter服务器时遇到的问题">http://example.com/posts/2314/</a>
+    <a href="http://example.com/posts/2314/" title="A Command to Solve the Issue of Remote Access the Jupyter Servers Running on AWS">http://example.com/posts/2314/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a>，please indicate the source if reprinted.
@@ -308,8 +309,8 @@
       <i class="fa fa-chevron-left"></i> 我的第一个私人博客(My first blog)
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/7170/" rel="next" title="如何安装无桌面的Raspberry Pi OS">
-      如何安装无桌面的Raspberry Pi OS <i class="fa fa-chevron-right"></i>
+    <a href="/posts/7170/" rel="next" title="How to Install a Headless Raspberry Pi OS">
+      How to Install a Headless Raspberry Pi OS <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -387,9 +388,6 @@
       <span class="links-of-author-item">
         <a href="https://www.linkedin.com/in/han-ying" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;han-ying" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
       </span>
-      <span class="links-of-author-item">
-        <a href="skype:Ying - Mecaprom call|chat" title="Skype → skype:Ying - Mecaprom call|chat" rel="noopener" target="_blank"><i class="fab fa-skype fa-fw"></i>Skype</a>
-      </span>
   </div>
 
 
@@ -422,12 +420,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">17k</span>
+    <span title="Symbols count total">32k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">29 mins.</span>
 </div>
 
         
