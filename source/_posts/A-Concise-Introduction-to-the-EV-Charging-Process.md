@@ -1,13 +1,15 @@
 ---
-title: A Concise Introduction to the EV Charging Process
+title: Revisited the EV Charging Process
 tags:
   - EV
   - Charging
-  - MODE 3
+  - IEC 61851
+  - CP
 categories:
   - - EV
 top: 30
 abbrlink: 49106
+mathjax: true
 date: 2021-04-26 10:47:08
 description: This article will try to introduce the EV charging process in a perspicuity manner via a real case.
 ---
@@ -17,7 +19,7 @@ description: This article will try to introduce the EV charging process in a per
   .box img {border-radius: 10px;}
 </style>
 
-Recently I got a feedback from a customer said the EVSE they owned(**charger 1**) cannot charge our vehicle. The behavior is when the connector plugged, the EVSE goes to the error status at once. Then he send the model of the charger is as follow:
+Recently I got a feedback from a customer said the EVSE they owned(**charger 1**) cannot charge our vehicle. The performance is when the connector plugged, the EVSE goes to the error status at once. Then he send the model of the charger to me:
 
 <div class="box">
   <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210427142820.jpg" alt="Efacec EV-HC3" />
@@ -31,7 +33,7 @@ Searching on the internet, I got that this charger's model is **efacec EV-HC3 G3
   Datasheet of the Efacec EV-HC3 Charger
 </div>
 
-Seeing as either the charger or the BMS was designed according the same standard, what's more bizarre is the charger we provide along with the vehicle(**charger 2w**) is working well with either our vehicle or others, the charger they have can work with other vehicle as well, but why does it can't work with our vehicle?
+Seeing as either the charger or the BMS was designed according the same standard, what's more bizarre is the charger we provide along with the vehicle(**charger 2**) is working well with either our vehicle or others, the charger they have can work with other vehicle as well, but why does it can't work with our vehicle?
 
 ## IEC 61851
 
@@ -66,7 +68,7 @@ Obviously for a $PWM$, it is worth noting only the amplitude, but also the duty 
   Ampere capacity with PWM duty cycle
 </div>
 
-## Video recording
+## Testing
 
 Now let's look back at the case we mentioned in the beginning. To find the key of this issue, I recorded the CP states on vehicle side via PicoScope when the two chargers were plugged.
 
@@ -86,4 +88,30 @@ In this video, the behavior of the signal is definitely correct at first glance,
 
 ## Analysis
 
-The CP-PE is a very simple loop consists only a supply on EVSE side, resistors and a sampling circuit on BMS to detect the signal from EVSE. 
+The CP-PE is a very simple loop consists only a supply on EVSE side, resistors and a sampling circuit on BMS to detect the signal from EVSE. Thus the problem should be the consumption of the sampling circuit. The testing results is as follow:
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210502162411.jpg" alt="Charging sampling circuit" />
+  CP current loop analysis
+</div>
+
+Ideally, the current of sampling circuit should be zero, hence:
+
+$$ V_{T1} = 12V - (1k\Omega * 2.71mA) = 9.29V $$
+
+However, in the actual circuit, the current flowing through the sampling circuit is as high as $1.28mA$, in this case:
+
+$$ V_{T1} = 12V - (1k\Omega * (2.71 + 1.28)mA) = 8V $$
+
+Obviously, excessive consumption of the sampling circuit leads to excessive voltage drop of the resistor $R1$.
+
+## Solution
+
+In order to reduce the consumption of the sampling circuit, a simple solution is  replaced the BJT with 2N7002k, a N-channel enhancement type MOSFET, to increase the input impedance.
+
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/20210502175751.jpg" alt="Charging sampling circuit" />
+  Sampling BJT: Q203, Q205
+</div>
+
+By dealing with this issue, I revisited the EV charging standard and have a clearer understanding. Also for the hardware design, it must be verified by the worst condition and must meet the requirements of standard. If you have any doubt with EV charging, please leave it in the comment then we will discuss together.
