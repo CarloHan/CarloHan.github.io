@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Migrated my blog from AWS to GitHub</title>
-    <url>/posts/13264/</url>
-    <content><![CDATA[<style>
-  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
-  .box img {border-radius: 10px;}
-</style>
-<p>Although I have registered on GitHub more than 6 years, I didn’t really start using it until last year, then felt its convenience immediately. During the touch I got that GitHub provide a static site hosting service named GitHub Pages. With this service, you can host your site with ‘<a href="http://github.io">github.io</a>’ domain or your custom domain.<br />
-The default site generator on GitHub is JekyII. Of course there are a lot of open source generator which support GitHub Pages you can choose, such as my choice: Hexo.</p>
-<hr />
-<h2 id="about-github-pages-and-hexo"><a class="markdownIt-Anchor" href="#about-github-pages-and-hexo"></a> About GitHub Pages and Hexo</h2>
-<blockquote>
-<p><strong><a href="https://docs.github.com/en/github/working-with-github-pages/about-github-pages">GitHub Pages</a></strong> is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website.</p>
-<p><strong><a href="https://hexo.io/">Hexo</a></strong> is a fast, simple &amp; powerful blog framework. It includes a lot of powerful features such as fast blazing, Markdown support, one-command deployment and plugin support.</p>
-</blockquote>
-<h2 id="custom-domain"><a class="markdownIt-Anchor" href="#custom-domain"></a> Custom domain</h2>
-<p>After deployed your site, the default domain will be ‘www.[your name].github.io’, of course you can custom it if you have a personal domain.</p>
-<ul>
-<li>Save your domain in the repository setting</li>
-<li>Go to your DNS server add an A record and a CNAME record, done</li>
-<li>For the specific step click <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">here</a>.</li>
-</ul>
-<h2 id="select-a-theme-from-internet-and-custom-it-by-yourself"><a class="markdownIt-Anchor" href="#select-a-theme-from-internet-and-custom-it-by-yourself"></a> Select a theme from internet and custom it by yourself</h2>
-<p>There are a lot of excellent open source themes on the internet and you can select it as you prefer. In fact, a theme only provide a basic style for your blog, there is no one that happens to meet all your preferences. In order to custom your blog, my suggestion is study a few HTML and CSS grammars. It doesn’t means the specific grammar or elements, but the structures, to understand how does the “wheel” work.</p>
-<p>My favorite theme is <strong><a href="https://github.com/theme-next/hexo-theme-next">NEXT</a></strong>:</p>
-<div class="box">
-  <img src="https://user-images.githubusercontent.com/16272760/63487983-da41b080-c4df-11e9-951c-64883a8a5e9b.png" alt="NEXT" />
-</div>
-<blockquote>
-<p>NEXT is a high quality elegant Hexo theme.</p>
-</blockquote>
-<h2 id="multi-computer-syn-management"><a class="markdownIt-Anchor" href="#multi-computer-syn-management"></a> Multi-computer syn management</h2>
-<p>When it comes to version control, the first thing in your mind is GitHub definitely, you are right, the best solution to manage Hexo blog is GitHub also. What you need to do is create a new branch in your page repository, then upload the source files.</p>
-<p>The working principle is that your website page is deployed at master branch, but the source files you need to upgrade is pulled to the branch that you were created.</p>
-<hr />
-<p>Above just introduced a few key steps to deploy a website on GitHub pages. There are great number tutorials on the web. Also, if you have any question please leave it in the comments and we can study together.</p>
-]]></content>
-      <categories>
-        <category>life</category>
-        <category>HTML+CSS</category>
-        <category>GitHub</category>
-      </categories>
-      <tags>
-        <tag>Website migration</tag>
-        <tag>Blog</tag>
-        <tag>CSS</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Revisited the EV Charging Process</title>
     <url>/posts/49106/</url>
     <content><![CDATA[<style>
@@ -126,6 +77,55 @@ The default site generator on GitHub is JekyII. Of course there are a lot of ope
         <tag>Charging</tag>
         <tag>IEC 61851</tag>
         <tag>CP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Migrated my blog from AWS to GitHub</title>
+    <url>/posts/13264/</url>
+    <content><![CDATA[<style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+<p>Although I have registered on GitHub more than 6 years, I didn’t really start using it until last year, then felt its convenience immediately. During the touch I got that GitHub provide a static site hosting service named GitHub Pages. With this service, you can host your site with ‘<a href="http://github.io">github.io</a>’ domain or your custom domain.<br />
+The default site generator on GitHub is JekyII. Of course there are a lot of open source generator which support GitHub Pages you can choose, such as my choice: Hexo.</p>
+<hr />
+<h2 id="about-github-pages-and-hexo"><a class="markdownIt-Anchor" href="#about-github-pages-and-hexo"></a> About GitHub Pages and Hexo</h2>
+<blockquote>
+<p><strong><a href="https://docs.github.com/en/github/working-with-github-pages/about-github-pages">GitHub Pages</a></strong> is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website.</p>
+<p><strong><a href="https://hexo.io/">Hexo</a></strong> is a fast, simple &amp; powerful blog framework. It includes a lot of powerful features such as fast blazing, Markdown support, one-command deployment and plugin support.</p>
+</blockquote>
+<h2 id="custom-domain"><a class="markdownIt-Anchor" href="#custom-domain"></a> Custom domain</h2>
+<p>After deployed your site, the default domain will be ‘www.[your name].github.io’, of course you can custom it if you have a personal domain.</p>
+<ul>
+<li>Save your domain in the repository setting</li>
+<li>Go to your DNS server add an A record and a CNAME record, done</li>
+<li>For the specific step click <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">here</a>.</li>
+</ul>
+<h2 id="select-a-theme-from-internet-and-custom-it-by-yourself"><a class="markdownIt-Anchor" href="#select-a-theme-from-internet-and-custom-it-by-yourself"></a> Select a theme from internet and custom it by yourself</h2>
+<p>There are a lot of excellent open source themes on the internet and you can select it as you prefer. In fact, a theme only provide a basic style for your blog, there is no one that happens to meet all your preferences. In order to custom your blog, my suggestion is study a few HTML and CSS grammars. It doesn’t means the specific grammar or elements, but the structures, to understand how does the “wheel” work.</p>
+<p>My favorite theme is <strong><a href="https://github.com/theme-next/hexo-theme-next">NEXT</a></strong>:</p>
+<div class="box">
+  <img src="https://user-images.githubusercontent.com/16272760/63487983-da41b080-c4df-11e9-951c-64883a8a5e9b.png" alt="NEXT" />
+</div>
+<blockquote>
+<p>NEXT is a high quality elegant Hexo theme.</p>
+</blockquote>
+<h2 id="multi-computer-syn-management"><a class="markdownIt-Anchor" href="#multi-computer-syn-management"></a> Multi-computer syn management</h2>
+<p>When it comes to version control, the first thing in your mind is GitHub definitely, you are right, the best solution to manage Hexo blog is GitHub also. What you need to do is create a new branch in your page repository, then upload the source files.</p>
+<p>The working principle is that your website page is deployed at master branch, but the source files you need to upgrade is pulled to the branch that you were created.</p>
+<hr />
+<p>Above just introduced a few key steps to deploy a website on GitHub pages. There are great number tutorials on the web. Also, if you have any question please leave it in the comments and we can study together.</p>
+]]></content>
+      <categories>
+        <category>life</category>
+        <category>HTML+CSS</category>
+        <category>GitHub</category>
+      </categories>
+      <tags>
+        <tag>Website migration</tag>
+        <tag>Blog</tag>
+        <tag>CSS</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -245,39 +245,6 @@ V_{Bat} = 500V
       </tags>
   </entry>
   <entry>
-    <title>A simple application of Matplotlib at work</title>
-    <url>/posts/8131/</url>
-    <content><![CDATA[<p>Recently I’m working on calculating the charging current limitation strategy for our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, it couldn’t achieve the effect waht I want. Then I turned my eyes on Matlab, but the logo of looks at me and says, come on bro, don’t let me do this, it’s overkill. Ok, stop talking nonsense, let’s take a look at our protagonist.</p>
-<h2 id="what-is-matplotlib"><a class="markdownIt-Anchor" href="#what-is-matplotlib"></a> What is matplotlib?</h2>
-<blockquote>
-<p>Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.</p>
-</blockquote>
-<p>If you know something about Python, you may also know something about Matplotlib. In this article I won’t describe lots of the specific about this library, I just show a very simple example what I used in the work.</p>
-<h2 id="a-simple-example"><a class="markdownIt-Anchor" href="#a-simple-example"></a> A simple example</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data1 = np.array([<span class="number">2.65</span>, <span class="number">2.93</span>, <span class="number">4.015</span>, <span class="number">4.05</span>])</span><br><span class="line">data2 = np.array([<span class="number">5</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>])</span><br><span class="line">data3 = np.array([<span class="number">2.65</span>, <span class="number">2.79</span>, <span class="number">4.03</span>, <span class="number">4.05</span>])</span><br><span class="line">data4 = np.array([<span class="number">5</span>, <span class="number">12.5</span>, <span class="number">12.5</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(data1, data2, label=<span class="string">&#x27;16A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.plot(data3, data4, label=<span class="string">&#x27;10A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.axis([<span class="number">2.65</span>, <span class="number">4.1</span>, <span class="number">0</span>, <span class="number">25</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.65, 5)&#x27;</span>, xy=(<span class="number">2.65</span>,<span class="number">5</span>), xytext=(<span class="number">2.8</span>,<span class="number">5</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.79, 12.5)&#x27;</span>, xy=(<span class="number">2.79</span>,<span class="number">12.5</span>), xytext=(<span class="number">2.9</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.93, 20)&#x27;</span>, xy=(<span class="number">2.93</span>,<span class="number">20</span>), xytext=(<span class="number">3.1</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.015, 20)&#x27;</span>, xy=(<span class="number">4.015</span>,<span class="number">20</span>), xytext=(<span class="number">3.6</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.03, 12.5)&#x27;</span>, xy=(<span class="number">4.03</span>,<span class="number">12.5</span>), xytext=(<span class="number">3.65</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.05, 0)&#x27;</span>, xy=(<span class="number">4.05</span>,<span class="number">0</span>), xytext=(<span class="number">3.75</span>,<span class="number">2</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Cell Voltage/V&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Charging Current/A&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Charging Current Limitation&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="number">2</span>)</span><br><span class="line">plt.savefig(<span class="string">&#x27;Charging current limitation(10A16A).png&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h2 id="graphic"><a class="markdownIt-Anchor" href="#graphic"></a> Graphic</h2>
-<p>As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:</p>
-<style>
-  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
-  .box img {border-radius: 10px;}
-</style>
-<div class="box">
-  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png" alt="Charging Current Limitation" />
-  Charging Current Limitation curve
-</div>
-<p>There are a lot of libraries very convenient and useful, most of the time we don’t need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！</p>
-]]></content>
-      <categories>
-        <category>EV</category>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>library</tag>
-        <tag>matplotlib</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Troubleshoot Procedure</title>
     <url>/posts/41237/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -321,6 +288,39 @@ V_{Bat} = 500V
       </categories>
       <tags>
         <tag>Upgrade</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A simple application of Matplotlib at work</title>
+    <url>/posts/8131/</url>
+    <content><![CDATA[<p>Recently I’m working on calculating the charging current limitation strategy for our EV. To show the relationship more clearly, I tried to drawn a line charm by excel. However, I might not good at using office, it couldn’t achieve the effect waht I want. Then I turned my eyes on Matlab, but the logo of looks at me and says, come on bro, don’t let me do this, it’s overkill. Ok, stop talking nonsense, let’s take a look at our protagonist.</p>
+<h2 id="what-is-matplotlib"><a class="markdownIt-Anchor" href="#what-is-matplotlib"></a> What is matplotlib?</h2>
+<blockquote>
+<p>Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.</p>
+</blockquote>
+<p>If you know something about Python, you may also know something about Matplotlib. In this article I won’t describe lots of the specific about this library, I just show a very simple example what I used in the work.</p>
+<h2 id="a-simple-example"><a class="markdownIt-Anchor" href="#a-simple-example"></a> A simple example</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data1 = np.array([<span class="number">2.65</span>, <span class="number">2.93</span>, <span class="number">4.015</span>, <span class="number">4.05</span>])</span><br><span class="line">data2 = np.array([<span class="number">5</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">0</span>])</span><br><span class="line">data3 = np.array([<span class="number">2.65</span>, <span class="number">2.79</span>, <span class="number">4.03</span>, <span class="number">4.05</span>])</span><br><span class="line">data4 = np.array([<span class="number">5</span>, <span class="number">12.5</span>, <span class="number">12.5</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(data1, data2, label=<span class="string">&#x27;16A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.plot(data3, data4, label=<span class="string">&#x27;10A&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.axis([<span class="number">2.65</span>, <span class="number">4.1</span>, <span class="number">0</span>, <span class="number">25</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.65, 5)&#x27;</span>, xy=(<span class="number">2.65</span>,<span class="number">5</span>), xytext=(<span class="number">2.8</span>,<span class="number">5</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.79, 12.5)&#x27;</span>, xy=(<span class="number">2.79</span>,<span class="number">12.5</span>), xytext=(<span class="number">2.9</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(2.93, 20)&#x27;</span>, xy=(<span class="number">2.93</span>,<span class="number">20</span>), xytext=(<span class="number">3.1</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.015, 20)&#x27;</span>, xy=(<span class="number">4.015</span>,<span class="number">20</span>), xytext=(<span class="number">3.6</span>,<span class="number">21</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.03, 12.5)&#x27;</span>, xy=(<span class="number">4.03</span>,<span class="number">12.5</span>), xytext=(<span class="number">3.65</span>,<span class="number">14</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;(4.05, 0)&#x27;</span>, xy=(<span class="number">4.05</span>,<span class="number">0</span>), xytext=(<span class="number">3.75</span>,<span class="number">2</span>), arrowprops=<span class="built_in">dict</span>(width=<span class="number">0.2</span>,headwidth=<span class="number">3</span>,facecolor=<span class="string">&#x27;black&#x27;</span>,shrink=<span class="number">0.1</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Cell Voltage/V&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Charging Current/A&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Charging Current Limitation&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="number">2</span>)</span><br><span class="line">plt.savefig(<span class="string">&#x27;Charging current limitation(10A16A).png&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="graphic"><a class="markdownIt-Anchor" href="#graphic"></a> Graphic</h2>
+<p>As you can see, the code is very concise, you just need to define the property of elements what you need, such as position, color, style, etc. Running the code and the graphic as below:</p>
+<style>
+  .box {width:60%; text-align:center; font-size:10px; margin:0 auto;}
+  .box img {border-radius: 10px;}
+</style>
+<div class="box">
+  <img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/Charging-current-limitation10A16A.png" alt="Charging Current Limitation" />
+  Charging Current Limitation curve
+</div>
+<p>There are a lot of libraries very convenient and useful, most of the time we don’t need proficient but just use them as a tool, to solve a problem in our work or life. Being good at using tools is an amazing skill！</p>
+]]></content>
+      <categories>
+        <category>EV</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>library</tag>
+        <tag>matplotlib</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -434,57 +434,6 @@ V_{Bat} = 500V
       </tags>
   </entry>
   <entry>
-    <title>A Command to Solve the Issue of Remote Access the Jupyter Servers Running on AWS</title>
-    <url>/posts/2314/</url>
-    <content><![CDATA[<p>Recently I try to install the Jupyter server on the AWS to achieve a remote access. I thought it was a very little case but encountered a lot of problems and spent almost a day to solve them.</p>
-<p>Finally, in the <a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">forum of Jupyter</a> I found a very simple but effective solution：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
-<p>It use command<code>-NfL</code>to forward the port of the remote server to the local port.</p>
-<p>Try to solve and share the problems you met during the deployed in the comment.</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>AWS</tag>
-        <tag>Jupyter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一个私人博客(My first blog)</title>
-    <url>/posts/52357/</url>
-    <content><![CDATA[<p>很早就想建起一个属于自己的博客，用来记录学习的过程。</p>
-<p>学习中发现一个问题，也许是年龄越来越大，记忆力逐渐衰减，很多网络上学到的知识转瞬即忘。比如安装linux系统时，碰到一些奇怪的问题，在网上查找后找到了解决办法，然而下次碰到同样的问题，依然需要去网上找答案。</p>
-<p>于是这个个人博客应运而生，用于记录学习中碰到的各类问题，以方便自己查阅，万一还能够帮助到其他人，就再好不过了！</p>
-]]></content>
-      <categories>
-        <category>life</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to Install a Headless Raspberry Pi OS</title>
-    <url>/posts/7170/</url>
-    <content><![CDATA[<p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
-<p>由于之前为了安装宝塔面板，使用了OPENFANS发布的<a href="https://gitee.com/openfans-community/Debian-Pi-Aarch64">Debian-Pi-Aarch64</a>系统，索性重新制作一遍系统。因为TF卡比较小，最终选择了无桌面的官方系统。</p>
-<h2 id="制作系统镜像"><a class="markdownIt-Anchor" href="#制作系统镜像"></a> 制作系统镜像</h2>
-<p>第一步把系统镜像烧写到TF卡，由于官方提供了<a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>，制作过程变得非常简单。</p>
-<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/raspberry%20pi%20image.png" alt="Raspberry Pi Imager" /></p>
-<p>只需将TF卡插在电脑上，然后打开Raspberry Pi Imager，选择你想制作的系统，再选择TF卡，点击写入，等待写入完成即可。</p>
-<h2 id="提前配置网络环境"><a class="markdownIt-Anchor" href="#提前配置网络环境"></a> 提前配置网络环境</h2>
-<p>下面重点来了，因为是无桌面系统，不能连接显示器键盘鼠标来进行wifi连接，账号设置等操作，所以需要使用ssh进行连接，并手动配置wifi。</p>
-<p>系统写入完成后，不要拔出TF卡，直接在电脑上打开TF卡，在root根目录下，新建一个文本文档取名为ssh并删掉后缀.txt。之后再新建一个文本文档取名为wpa_supplicant，后缀.conf，使用VScode或其他编辑器打开这个文档，在里面进行wifi配置如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">country=IT    #所在国家代码</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line"></span><br><span class="line">network=&#123;     #使用network可添加多个wifi，根据priority优先级依次连接</span><br><span class="line"> ssid=&quot;&lt;WiFi名,不能有中文&gt;&quot; </span><br><span class="line"> psk=&quot;&lt;密码&gt;&quot; </span><br><span class="line"> priority=10 </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">network=&#123;</span><br><span class="line"> ssid=&quot;&lt;第二个WiFi名&gt;&quot;</span><br><span class="line"> psk=&quot;&lt;第二个密码&gt;&quot; </span><br><span class="line"> priority=&lt;替换成数字，数字越大代表优先级越高&gt; </span><br></pre></td></tr></table></figure>
-<p>至此，前戏部分就结束了，将TF卡拔出，插在Pi上，然后接通电源，看到黄灯闪烁则系统运行成功。下一步需要找到你的Pi所分配到的IP地址，进行ssh连接。</p>
-]]></content>
-      <categories>
-        <category>Raspberry</category>
-      </categories>
-      <tags>
-        <tag>Headless</tag>
-        <tag>raspberry OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Solve The Problem of Unstable WiFi Connection On Ubuntu OS</title>
     <url>/posts/14941/</url>
     <content><![CDATA[<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
@@ -511,5 +460,56 @@ V_{Bat} = 500V
         <tag>WiFi</tag>
         <tag>Surface Pro</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>A Command to Solve the Issue of Remote Access the Jupyter Servers Running on AWS</title>
+    <url>/posts/2314/</url>
+    <content><![CDATA[<p>Recently I try to install the Jupyter server on the AWS to achieve a remote access. I thought it was a very little case but encountered a lot of problems and spent almost a day to solve them.</p>
+<p>Finally, in the <a href="https://medium.com/@alexjsanchez/python-3-notebooks-on-aws-ec2-in-15-mostly-easy-steps-2ec5e662c6c6">forum of Jupyter</a> I found a very simple but effective solution：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &lt;your key.pem&gt; -NfL &lt;local port&gt;:localhost:&lt;server port&gt; &lt;user@ip&gt;</span><br></pre></td></tr></table></figure>
+<p>It use command<code>-NfL</code>to forward the port of the remote server to the local port.</p>
+<p>Try to solve and share the problems you met during the deployed in the comment.</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>Jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Install a Headless Raspberry Pi OS</title>
+    <url>/posts/7170/</url>
+    <content><![CDATA[<p>最近把个人博客转移到AWS上去，于是手头的Raspberry Pi 4B就闲了下来，正好还有一个Pi使用的摄像头，就准备拿来熟悉一下OpenCV。</p>
+<p>由于之前为了安装宝塔面板，使用了OPENFANS发布的<a href="https://gitee.com/openfans-community/Debian-Pi-Aarch64">Debian-Pi-Aarch64</a>系统，索性重新制作一遍系统。因为TF卡比较小，最终选择了无桌面的官方系统。</p>
+<h2 id="制作系统镜像"><a class="markdownIt-Anchor" href="#制作系统镜像"></a> 制作系统镜像</h2>
+<p>第一步把系统镜像烧写到TF卡，由于官方提供了<a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>，制作过程变得非常简单。</p>
+<p><img src="https://raw.githubusercontent.com/CarloHan/pic-blog/master/pictures/raspberry%20pi%20image.png" alt="Raspberry Pi Imager" /></p>
+<p>只需将TF卡插在电脑上，然后打开Raspberry Pi Imager，选择你想制作的系统，再选择TF卡，点击写入，等待写入完成即可。</p>
+<h2 id="提前配置网络环境"><a class="markdownIt-Anchor" href="#提前配置网络环境"></a> 提前配置网络环境</h2>
+<p>下面重点来了，因为是无桌面系统，不能连接显示器键盘鼠标来进行wifi连接，账号设置等操作，所以需要使用ssh进行连接，并手动配置wifi。</p>
+<p>系统写入完成后，不要拔出TF卡，直接在电脑上打开TF卡，在root根目录下，新建一个文本文档取名为ssh并删掉后缀.txt。之后再新建一个文本文档取名为wpa_supplicant，后缀.conf，使用VScode或其他编辑器打开这个文档，在里面进行wifi配置如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">country=IT    #所在国家代码</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line"></span><br><span class="line">network=&#123;     #使用network可添加多个wifi，根据priority优先级依次连接</span><br><span class="line"> ssid=&quot;&lt;WiFi名,不能有中文&gt;&quot; </span><br><span class="line"> psk=&quot;&lt;密码&gt;&quot; </span><br><span class="line"> priority=10 </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">network=&#123;</span><br><span class="line"> ssid=&quot;&lt;第二个WiFi名&gt;&quot;</span><br><span class="line"> psk=&quot;&lt;第二个密码&gt;&quot; </span><br><span class="line"> priority=&lt;替换成数字，数字越大代表优先级越高&gt; </span><br></pre></td></tr></table></figure>
+<p>至此，前戏部分就结束了，将TF卡拔出，插在Pi上，然后接通电源，看到黄灯闪烁则系统运行成功。下一步需要找到你的Pi所分配到的IP地址，进行ssh连接。</p>
+]]></content>
+      <categories>
+        <category>Raspberry</category>
+      </categories>
+      <tags>
+        <tag>Headless</tag>
+        <tag>raspberry OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一个私人博客(My first blog)</title>
+    <url>/posts/52357/</url>
+    <content><![CDATA[<p>很早就想建起一个属于自己的博客，用来记录学习的过程。</p>
+<p>学习中发现一个问题，也许是年龄越来越大，记忆力逐渐衰减，很多网络上学到的知识转瞬即忘。比如安装linux系统时，碰到一些奇怪的问题，在网上查找后找到了解决办法，然而下次碰到同样的问题，依然需要去网上找答案。</p>
+<p>于是这个个人博客应运而生，用于记录学习中碰到的各类问题，以方便自己查阅，万一还能够帮助到其他人，就再好不过了！</p>
+]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
   </entry>
 </search>
