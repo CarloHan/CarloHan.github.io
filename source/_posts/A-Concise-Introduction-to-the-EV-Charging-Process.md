@@ -78,7 +78,7 @@ Now let's look back at the case we mentioned in the beginning. To find the key o
 
 From this video we got that there was a voltage drop down when the connector plugged(initially $+12V$), but why the process get stuck?
 
-The standard specifies that the voltage judgement range of State B(vehicle detected) is $9\pm1V$. It the video, the voltage dropped to around $7.9V$, it was out of the range. In this case, the EVSE cannot ensure the vehicle has been connected, thus it will not activate the wave generator, as well as the vehicle don't adding the parallel resistor since no PWM was detected.
+The standard specifies that the voltage judgement range of State B(vehicle detected) is $9\pm1V$. In the video, the voltage dropped to around $7.9V$, it was out of the range. In this case, the EVSE cannot ensure the vehicle has been connected, thus it will not activate the wave generator, as well as the vehicle don't adding the parallel resistor since no PWM was detected.
 
 ### Charger 2 (the charger we provide)
 

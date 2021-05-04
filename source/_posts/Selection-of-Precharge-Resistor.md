@@ -2,6 +2,8 @@
 title: Model Selection of Pre-charge Resistor
 tags:
   - Pre-charge Resistor
+  - Selection
+  - EV
 categories:
   - - EV
 top: 29
